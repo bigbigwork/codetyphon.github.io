@@ -1,0 +1,295 @@
+<html>
+	<head>
+		<title>flappy2048</title>
+		<style>
+			#canvas{
+				width:800px;
+				height:600px;
+				border:solid 2px #ccc;
+				position:relative;
+			}
+			#player{
+				width:50px;
+				height:50px;
+				border:solid 2px #521521;
+			}
+			#gameOver{
+				display:block;
+				background:#ccc;
+				width:300px;
+				height:200px;
+				position:absolute;
+				top:300px;
+				left:300px;
+				text-align:center;
+				
+				font-size:40px;
+				z-index:1000;
+				display:none;
+				
+			}
+			#replay{
+				background:#250250;
+				width:150px;
+				height:60px;
+				color:#fff;
+				margin:0 auto;
+			}
+			#play{
+				position:absolute;
+				top:300px;
+				left:300px;
+				background:#721721;
+				width:150px;
+				height:80px;
+				color:#fff;
+				text-align:center;
+				font-size:50px;
+				line-height:80px;
+			}
+		</style>
+		<script>
+			var game;
+		
+			
+			function Author(){
+				this.authorName='ikeda';
+				this.authorEmail='g@codetyphon.com';
+			}
+			
+			function Dict(){
+				this.word='';
+				this.targetWord='';
+				this.dict=new Array();
+				this.language='chinese';
+				this.toLanguage='english';
+				this.allDict=new Array();
+				this.passedDict=new Array();
+				
+				this.top=0;
+				this.left=600;
+				this.width=60;
+				this.height=58;
+				this.border=2;
+				this.init();
+				this.speed=3;
+				
+			}
+			Dict.prototype.init=function(){
+				this.word='2';
+				this.targetWord='hello';
+				
+				this.dict.push("2");
+				this.dict.push("4");
+				this.dict.push("8");
+				this.dict.push("16");
+				this.dict.push("32");
+				this.dict.push("64");
+				this.dict.push("128");
+				this.dict.push("256");
+				this.dict.push("512");
+				this.dict.push("1024");
+			}
+			Dict.prototype.reload=function(){
+				this.dict.sort(function(){
+					return 0.5 > Math.random();
+				});
+				document.getElementById('canvas').innerHTML='';
+				for(i=0;i<this.dict.length;i++){
+					var obj=document.createElement('obj');
+					obj.id="dict_"+i;
+					obj.style.width=this.width+'px';
+					obj.style.height=this.height+'px';
+					obj.style.lineHeight=this.height+'px';
+					obj.style.textAlign='center';
+					obj.style.border='solid 1px #ccc';
+					obj.style.position='absolute';
+					
+					obj.top=(this.height+this.border)*i;
+					obj.style.top=obj.top+'px';
+					obj.height=this.height;
+					obj.style.left=this.left+'px';
+					obj.innerHTML=this.dict[i];
+					
+					var colorStr=Math.floor(Math.random()*0xFFFFFF).toString(16).toUpperCase();
+					var color="#"+"000000".substring(0,6-colorStr)+colorStr;
+					//var r=Math.round(Math.random()*255);
+					//var g=Math.round(Math.random()*255);
+					//var b=Math.round(Math.random()*255);
+					obj.style.background=color;
+					document.getElementById('canvas').appendChild(obj);
+					
+					if(obj.innerHTML==game.player.div.innerHTML){
+						game.player.div.style.background=color;
+					}
+				}
+			}
+			Dict.prototype.getDict=function(){
+				
+			}
+			Dict.prototype.getWord=function(){
+				return this.word;
+			}
+			Dict.prototype.getTargetWord=function(){
+				return this.targetWord;
+			}
+			Dict.prototype.show=function(){
+				this.left-=this.speed;
+				if(this.left+this.width<0){
+					this.left=800;
+					this.speed=3;
+					game.next();
+					game.player.canDown=1;
+				}
+				for(i=0;i<this.dict.length;i++){
+					document.getElementById('dict_'+i).style.left=this.left+'px';
+					if(game.player.canDown==1){
+						if(this.left<(game.player.x+game.player.width)){
+							if(game.player.y>document.getElementById('dict_'+i).top){
+								if(game.player.y+game.player.height<document.getElementById('dict_'+i).top+document.getElementById('dict_'+i).height){
+									if(document.getElementById('dict_'+i).innerHTML==game.player.word){
+
+										game.player.y=document.getElementById('dict_'+i).top+document.getElementById('dict_'+i).height/2-game.player.height/2;
+										game.player.canDown=0;
+										game.addValue(0.1);
+										document.getElementById('dict_'+i).style.background='green';
+										document.getElementById('dict_'+i).style.display='none';
+										game.player.setWord();
+										this.speed=8;
+										//ok
+									}else{
+										game.gameOver();
+										
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			
+			function Player(){
+				this.div=document.getElementById('player');
+				this.x=100;
+				this.y=100;
+				this.width=20;
+				this.height=20;
+				this.name='unknow';
+				this.living=0;
+				this.word='1';
+				
+				this.downSpeed=1;
+				this.upSpeed=1;
+				this.canDown=1;
+				this.init();
+			}
+			Player.prototype.init=function(){
+				this.div.style.position='absolute';
+				this.div.style.top=this.y+'px';
+				this.div.style.left=this.x+'px';
+				this.div.style.width=this.width+'px';
+				this.div.style.height=this.height+'px';
+				this.div.style.lineHeight=this.height+'px';
+				this.div.style.textAlign='center';
+				this.div.style.zIndex=999;
+			}
+			Player.prototype.setWord=function(){
+				this.word=this.word*2;
+				this.div.innerHTML=this.word;
+			}
+			Player.prototype.up=function(){
+				
+				this.upSpeed=15;
+			}
+			Player.prototype.down=function(){
+				if(this.canDown==1){
+					//this.downSpeed=this.y*0.98*0.02;
+					this.downSpeed=5;
+					if(this.upSpeed>0){
+						this.upSpeed*=0.9;
+					}
+					this.y+=this.downSpeed-this.upSpeed;
+					if(this.y<0){
+						this.y=2;
+						this.upSpeed=0;
+					}
+					if(this.y>(600-this.height)){
+						this.y=600-this.height;
+						this.downSpeed=1;
+					}
+				}
+			}
+			Player.prototype.show=function(){
+				this.div.style.top=this.y+'px';
+			}
+			function Game(){
+				this.author=new Author();
+				this.player=new Player();
+				this.living=0;
+				this.value=0;
+				this.dict=new Dict();
+			}
+			Game.prototype.addValue=function(value){
+				this.value+=value;
+				document.getElementById('v').innerHTML=this.value;
+			}
+			Game.prototype.init=function(){
+				
+			}
+			Game.prototype.next=function(){
+				this.dict.reload();
+			}
+			Game.prototype.show=function(){
+				if(this.living==1){
+					this.player.down();
+					this.player.show();
+					this.dict.show();
+				}
+			}
+			Game.prototype.getSpeed=function(){
+				return 1000/24;
+			}
+			Game.prototype.gameOver=function(){
+				this.living=0;
+				document.getElementById('gameOver').style.display='block';
+				
+			}
+			window.onload = function() {
+				game=new Game();
+				game.next();
+				game.player.setWord();
+				document.getElementById('play').onclick=function(){
+					game=new Game();
+					game.next();
+					game.player.setWord();
+					game.living=1;
+					this.style.display='none';
+				}
+				document.getElementById('replay').onclick=function(){
+					game=new Game();
+					game.next();
+					game.player.setWord();
+					game.living=1;
+					document.getElementById('gameOver').style.display='none';
+				}
+				document.getElementById('canvas').onclick=function(){
+					game.player.up();
+				}
+				setInterval(function(){
+					game.show();
+				},game.getSpeed());
+			}
+			
+		</script>
+	<head>
+	<body>
+		<div id="canvas"></div>
+		<div id="player"></div>
+		<div id="v">0</div>
+		<div id="play">play</div>
+		<div id="gameOver">
+			<div style="color:#f00;font-size:60px;float:left;clear:left;margin:30px 0px 0px 0px;text-align:center;width:100%;">Game Over</div>
+			<div id="replay" style="float:left;clear:left;margin:10px 0px 0px 30px;">replay</div>
+		</div>
+	</body>
+</html>
