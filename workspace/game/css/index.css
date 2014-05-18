@@ -1,0 +1,20 @@
+body {
+
+}
+#gaming{
+	display: none;
+}
+#gameover{
+	display: none;
+	width: 100%;
+	height: auto;
+}
+#mytop{
+	display: none;
+}
+#tops{
+	display: none;
+}
+#time{
+	color: #f00;
+}

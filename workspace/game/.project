@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>codetyphon</name>
+	<name>game</name>
 	<comment>Create By HBuilder</comment>
 	<projects>
 	</projects>
@@ -22,7 +22,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1400316642796</id>
+			<id>1400401720171</id>
 			<name></name>
 			<type>10</type>
 			<matcher>

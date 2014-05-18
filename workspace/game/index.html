@@ -3,92 +3,153 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>codetyphon</title>
-    <link id="css" rel="stylesheet" href="css/jquery.mobile-1.4.2.css">
-    <script src="js/jquery.js"></script>
-    <script src="js/jquery.mobile-1.4.2.js"></script>
-    <script>
-    	function callback(){getlist(json);}
-    	function getlist(json){
-    		if(json==undefined){
-    			json=JSON.parse(localStorage.getItem("news"));
-    			if(json==null){
-    				query();
-    			}else{
-    				getlist(json);
-    			}
-    			
-    		}else{
-    			document.getElementById("news20").innerHTML='';
-    			for(var i in json){
-    				;
-	    			var li=document.createElement("li");
-	    			var a=document.createElement("a");
-	    			a.title=json[i].bza;
-	    			a.innerHTML=json[i].title;
-	    			a.index=i;
-	    			a.className="ui-btn ui-btn-icon-right ui-icon-carat-r";
-	    			a.onclick=function(){
-	    				document.getElementById("title").innerHTML=json[this.index].title;
-	    				
-	    				document.getElementById("text").innerHTML=json[this.index].text;
-	    				
-	    				document.getElementById("news20").style.display="none";
-	    				document.getElementById("page").style.display="block";
-	    				document.getElementById("return").style.display="block";
-	    				document.getElementById("get").style.display="none";
-	    			}
-	    			li.appendChild(a);
-	    			document.getElementById("news20").appendChild(li);
-	    		}
-    			$("#get").text('刷新');
-    			localStorage.setItem("news", JSON.stringify(json));
-    		}
+    <title>3秒一题</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="js/codetyphon.js"></script>
+    <script type="text/javascript">
+    	function listop(x){
+    		$("topslist").text("");
+    		for(var i in x){
+    			var li=document.createElement("li");
+				var a=document.createElement("a");
+				a.innerHTML=decodeURI(x[i].user)+":"+x[i].v;
+				li.appendChild(a);
+				document.getElementById("topslist").appendChild(li);
+			}
+    		$("mytop").hide();
+			$("tops").show();
     	}
-    	function query(){
-    		$("#get").text("新闻获取中。。。");
-    		var s=document.createElement("script");
-    		s.src="http://codetyphon.jd-app.com/?act=mobile&callback="+callback;
-    		document.getElementById("jsbox").innerHTML="";
-    		document.getElementById("jsbox").appendChild(s);
-    	}
-    	function init(){
-    		$("#mypanel").trigger("updatelayout");
-    		getlist();
-    		setInterval(function(){
-				query();
-			},1000*60);
-    	}
-    	window.onload=init;
+		function init(){
+			var state="stop";//stop/start/end
+			var time=4;
+			var v=0;
+			var a=0;
+			var b=0;
+			var title="";
+			var trueValue=0;
+			$("start").bind("click",function(){
+				state="start";
+				$("welcome").hide();
+				$("gaming").show();
+				next();
+			});
+			$("restart").bind("click",function(){
+				next();
+				
+			});
+			$("startagain").bind("click",function(){
+				next();
+			});
+			$("submit").bind("click",function(){
+				state="stop";
+				$("gameover").hide();
+				$("gaming").hide();
+				$("mytop").show();
+				$.json("http://haskellchina.jd-app.com/post/3/"+$("username").val()+"/"+v+"/",function(x){
+					
+				});
+				
+			});
+			$("viewall").bind("click",seeTop20);//
+			function seeTop20(){
+				$.json("http://haskellchina.jd-app.com/tops/3/",function(x){
+					listop(x);
+				});
+				
+			}
+			function btn_click(){
+				if(parseInt(this.innerHTML)==(a+b)){
+					v+=1;
+					next();
+				}else{
+					gameover();
+				}
+			}
+			function next(){
+				$("v").text(v);
+				$("vv").text(v);
+				a=parseInt(Math.random()*(99-1)+1);
+				b=parseInt(Math.random()*(99-1)+1);
+				title=a+"+"+b+"=?";
+				$("title").text(title);
+				var arr=new Array();
+				arr[0]=a+b;
+				arr[1]=a+b+1;
+				arr[2]=a+b-1;
+				$.cort_array(arr);
+				$("bn1").text(arr[0]);
+				$("bn2").text(arr[1]);
+				$("bn3").text(arr[2]);
+				time=4;
+				state="start";
+				$("gameover").hide();
+				$("mytop").hide();
+				$("tops").hide();
+				$("gaming").show();
+			}
+			function gameover(){
+				$("v").text(v);
+				$("vv").text(v);
+				$("vvv").text(v);
+				$("gameover").show();
+				$("gaming").hide();
+				state=="end";
+			}
+			$("bn1").bind("click",btn_click);
+			$("bn2").bind("click",btn_click);
+			$("bn3").bind("click",btn_click);
+			setInterval(function(){
+				if(state=="start"){
+					if(time>1){
+						time--;
+						$("time").text(time);
+						
+					}else{
+						gameover();
+					}
+				}
+			},1000);
+		}
+		window.onload=init;
     </script>
+</head>
 <body>
-	<div data-role="page">
-		<div data-role="panel" id="mypanel">
-			<p>codetyphon</p>
-			<p>http://twitter.com/codetyphon</p>
-			<p>http://github.com/codetyphon</p>
-			<p>g@codetyphon.com</p>
-			<p>客户端半小时内在线<script src="http://codetyphon.jd-app.com/?act=online&host=android"></script>人</p>
-			<a href="#" data-rel="close">关闭</a>
-		    <!-- panel content goes here -->
-		</div><!-- /panel -->
-		<div id="jsbox"></div>
-			<div data-role="navbar">
-			    <ul>
-			        <li><a href="#" class="ui-btn-active">codetyphon</a></li>
-			        <li><a href="#mypanel" class="ui-btn-active">关于</a></li>
-			    </ul>
-			</div><!-- /navbar -->
-		<button id="get" onclick="query();">刷新</button>
-		<button id="return" style="display: none;" onclick='document.getElementById("news20").style.display="block";document.getElementById("page").style.display="none";document.getElementById("return").style.display="none";document.getElementById("get").style.display="block";'>返回</button>
-		<div id="page">
-			<h2 id="title"></h2>
-			<p id="bza"></p>
-			<p id="text"></p>
-			<p id="xj"></p>
+	<div id="get"></div>
+	
+	<div id="gaming">
+		<div>
+			当前得分：<span id="v"></span>&nbsp;&nbsp;剩余时间：<span id="time"></span>
 		</div>
-		<ul id="news20" data-role="listview" data-inset="true"></ul>
-		<div id="footer">
+		<h1 id="title"></h1>
+		<button id="bn1"></button>
+		<button id="bn2"></button>
+		<button id="bn3"></button>
+	</div>
+	<div id="welcome">
+		<div>
+			<h2>加法运算 3秒一题</h2>
+			<p>玩法：题目是加法运算，下方会有2个按钮，在指定的时间内点击正确的按钮！</p>
 		</div>
+		<button id="start">我要开始游戏</button>
+	</div>
+	<div id="gameover">
+		<h2>游戏结束啦！</h2>
+		<div>得分：<span id="vv"></span></div>
+		<input type="text" id="username" placeholder="输入您的姓名" />
+		<button id="submit">提交到排行榜</button>
+		<button id="restart">重新开始</button>
+	</div>
+	<div id="mytop">
+		<div style="display:none;">
+			<span id="vvv"></span>分的排名为：<span id="mun"></span>
+		</div>
+		<button id="viewall">查看排名前20</button>
+	</div>
+	<div id="tops">
+		<ul id="topslist"></ul>
+		<button id="startagain">重新开始</button>
+	</div>
+	<p>客户端半小时内在线<script src="http://codetyphon.jd-app.com/?act=online&host=game3"></script>人</p>
+	<p>意见反馈：</p>
 </body>
 </html>
