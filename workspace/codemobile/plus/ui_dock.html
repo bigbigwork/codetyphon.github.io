@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<meta name="HandheldFriendly" content="true"/>
+		<meta name="MobileOptimized" content="320"/>
+		<title>Hello H5+</title>
+		<script type="text/javascript" src="../js/common.js"></script>
+		<script type="text/javascript" charset="utf-8">
+var dock=null;
+// H5 plus事件处理
+document.addEventListener( "plusready", function() {
+	dock=plus.ui.createWindow("ui_header.html",{width:"100%",height:"46px",position:"dock",dock:"top"});
+	plus.ui.getSelfWindow().append( dock );
+}, false );
+		</script>
+		<link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8"/>
+	</head>
+	<body style="text-align:center;">
+		<br/>
+		<br/>
+		<br/>
+		<p>欢迎进入停靠页面</p>
+		<br/>
+		<img src="../img/ui.png"></img>
+		<div style="height:500px;"></div>
+		<p>页面内容结束</p>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<meta name="HandheldFriendly" content="true"/>
+		<meta name="MobileOptimized" content="320"/>
+		<title>Hello H5+</title>
+		<script type="text/javascript" charset="utf-8">
+//取消浏览器的所有事件，使得active的样式在手机上正常生效
+document.addEventListener( "touchstart", function(e) {
+    return false;
+}, false );
+// 屏蔽选择函数
+function shield() {
+	return false;
+}
+document.oncontextmenu = shield;
+// H5 plus事件处理
+document.addEventListener( "plusready", function() {
+	document.body.onselectstart = shield;
+}, false );
+// 处理返回事件
+function back() {
+	if ( window.plus ) {
+		plus.ui.getSelfWindow().close();
+	} else if ( history.length > 1 ) {
+		history.back();
+	} else {
+		window.close();
+	}
+}
+		</script>
+		<link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8"/>
+	</head>
+	<body>
+		<header>
+			<div class="nvbt" onclick="back();"><div class="iback"></div></div>
+			<div class="nvtt">停靠页面</div>
+		</header>
+	</body>
+</html>

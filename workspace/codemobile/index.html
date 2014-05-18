@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<meta name="misapplication-tap-highlight" content="no"/>
+		<meta name="HandheldFriendly" content="true"/>
+		<meta name="MobileOptimized" content="320"/>
+		<title>Hello H5+</title>
+		<script type="text/javascript" src="js/update.js" ></script>
+		<script type="text/javascript" charset="utf-8">
+//取消浏览器的所有事件，使得active的样式在手机上正常生效
+document.addEventListener( "touchstart", function(e) {
+    return false;
+}, true );
+// 禁止选择
+document.oncontextmenu = function(){
+	return false;
+};
+// H5 plus事件处理
+document.addEventListener( "plusready", function() {
+	plus.ui.getSelfWindow().addEventListener( "back", function(){
+	// Android处理返回键
+		if ( confirm("确认退出？") ) {
+			plus.runtime.quit();
+		}
+	}, false );
+	// iOS平台使用滚动的div
+	if ( "iOS" == plus.os.name ) {
+		document.getElementById("content").className = "scontent";
+	}
+	plus.ui.closeSplashscreen();
+}, false );
+// 处理点击事件
+function clicked( id ) {
+	if ( window.plus ) {
+		plus.ui.createWindow( id, {name:id} ).show( "slide-in-right", 300 );
+	} else {
+		window.open( id );
+	}
+}
+		</script>
+		<link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8"/>
+		<style type="text/css">
+li {
+	padding: 1em;
+	border-bottom: 1px solid #eaeaea;
+}
+li:active {
+	background: #f4f4f4;
+}
+.iabout {
+	width: 100%;
+	height: 100%;
+	background: no-repeat center center url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABYCAYAAAADWlKCAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAK6wAACusBgosNWgAAABZ0RVh0Q3JlYXRpb24gVGltZQAwOS8xMi8xM5w+I3MAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAADkUlEQVR4nO2b63HTQBRGTxj+EyrAVBAzWwBKBYQO0kHcAU4HTgehApwKUArYwa4ApwJwBeGHNuAY2URaSfczuWcmk3jH+xid7N596ej+/h5HhxfWDXAe40LEcCFiuBAxXIgYLkQMFyKGCxHDhYjhQsRwIWK4EDFciBguRAwXIoYLEcOFiOFCxHAhYrgQMVyIGC5EDBcihgsRw4WI4ULEeGndgKbEGEdAkX7GwMmOry6BBVAC8xDCz/5bl8/RodztjTEWwAT40LKIG2AWQii7alMfyAuJMY6BGfC+oyJvgamqGGkhMcYZcNFT8VchhElPZbdGUkiM8Zhq7N8VH7piCRRK8UVulpWGqJL+ZZDqWKQ6JZDqIalnLIA3GcUs0+8mQmV6iloPKWkv4zPwOoQwDiGMgVNg/cS8J6luc2R6SGYAvw0hFDVlzmk2TTYP9BI9JK0xcmZTsx3pq4blXFjHEwkhwLSncs9a5NkldxDMh6zUO75mFvMoKKfJwTXtV/WnVgtHhb2sLsbsE2AVY1ykz7mr+glGQd60h6T/5B9mDdjP2xDCauhKrWNImzF+KAqLSq2FFMb176OwqNRaSFdTzDvgkmqYOaJaFOZiMv21Duq5+1VrYBJCuN5MDCGUMcbMogfZS/sL6x6SwyUw2pYBvycLB8khCllTrROmwPGOh18M2qIOOUQh58AorTm+Uz/WF0M2qEusY0gbvmx+2LGiLgZpSQ8cYg/Z5HY7IQ1hJgG5C6yFLP/9lb0satKKzDIfyG1bK6yF1D3QJpQ1aV2t/nPb1gprIWUP+YvMMveV3TuHLGS5fQaebjXmnMdvMu+onEaYCkm7qTcts5c1aaONv6+oztnbcGN14cG6h0D7E7qyJm1F2tOiOoVsux9ldmpofmIIEGMsaX6otPO8Ip2Lz2k3fNVemBgKlYXhBPjWJEOdjLQGmQCfMtoyzcibjUQPgVbXgD6GEOYp7zHVlsqEvKBufg1IRghA2p966ip7zZ+1Qhc345fpgp0pCkF9k4Knr5BfUYnoQsYdIvtfUkLSVPOc6gENxRI4U7jXC2JD1gPP+XUESSEPPMcXdqSGrG3SAzulZps9g1vgnaIMEO8hm/hLn6Kk+HJGs9eiS4tbiG04OCH/O9Ix5DniQsRwIWK4EDFciBguRAwXIoYLEcOFiOFCxHAhYrgQMVyIGC5EDBcihgsRw4WI4ULEcCFiuBAxfgHyQw1G9FJgWwAAAABJRU5ErkJggg==);
+	background-size: 50px 44px;
+}
+.item {
+	display: block;
+	background: no-repeat right center url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAsCAYAAAB/nHhDAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAKwwAACsMBNCkkqwAAABZ0RVh0Q3JlYXRpb24gVGltZQAwNC8yOC8xMqLz6JEAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAABJ0lEQVRYhe3Wv6rCMBQG8C/VN1AEd3HSzuYO3jr4knkY0UE62xTBcp9A8A0uHhc72CZp/lQQyZmT7xfSJKeMiPDOSt6aHoEIRKAbkLKioqiCrroWkLKi+51ARAhBlEAdXlcI0gLK8u8lPBRpAYvFjCUJUw72QZRbtFzOe0O0H7kvxHhM83yfhiJdF+2c5/utCTmdLnS93rQQs2mZQogN59lOdbrqmk7HmExGrZVYAU9kzXl2cEWsgSfys1r9Hk1TmogTAABFcTFOaQJOr6mUlVO4E9B8n2zCrQHfcAAYmoKFEAPOs39dOGMMaTpXX5J6jGlTTSu3CQcsGk5IuBboK1wJ6BqOT7gS0DUcn3AlALR7gW84YHGKiOAd3gn0UV/+6xiBCHwG8AByzMrOPKV7sAAAAABJRU5ErkJggg==);
+	background-size: auto 100%;
+	-ms-touch-action: auto;
+}
+		</style>
+	</head>
+	<body onselectstart="return false;">
+		<header>
+			<div style="width:15%;height:100%;float:left;"></div>
+			<div class="nvtt">Hello HTML5+</div>
+			<div class="nvbt" onclick="clicked('about.html');"><div class="iabout"></div></div>
+		</header>
+		<div id="content" class="content">
+		<ul style="list-style:none;margin:0;padding:0;">
+			<li id="accelerometer" onclick="clicked('plus/accelerometer.html');">
+				<span class="item">Accelerometer</span>
+			</li>
+			<li id="audio" onclick="clicked('plus/audio.html');">
+				<span class="item">Audio</span>
+			</li>
+			<li id="barcode" onclick="clicked('plus/barcode.html');">
+				<span class="item">Barcode</span>
+			</li>
+			<li id="camera" onclick="clicked('plus/camera.html');">
+				<span class="item">Camera</span>
+			</li>
+			<li id="device" onclick="clicked('plus/device.html');">
+				<span class="item">Device</span>
+			</li>
+			<li id="downloader" onclick="clicked('plus/downloader.html');">
+				<span class="item">Downloader</span>
+			</li>
+			<li id="event" onclick="clicked('plus/events.html');">
+				<span class="item">Events</span>
+			</li>
+			<li id="fs" onclick="clicked('plus/file.html');">
+				<span class="item">File System</span>
+			</li>
+			<li id="gallery" onclick="clicked('plus/gallery.html');">
+				<span class="item">Gallery</span>
+			</li>
+			<li id="geolocation" onclick="clicked('plus/geolocation.html');">
+				<span class="item">Geolocation</span>
+			</li>
+			<li id="maps" onclick="clicked('plus/maps.html');">
+				<span class="item">Maps</span>
+			</li>
+			<li id="messaging" onclick="clicked('plus/message.html');">
+				<span class="item">Messaging</span>
+			</li>
+			<li id="orientation" onclick="clicked('plus/orientation.html');">
+				<span class="item">Orientation</span>
+			</li>
+			<li id="proximity" onclick="clicked('plus/proximity.html');">
+				<span class="item">Proximity</span>
+			</li>
+			<li id="push" onclick="clicked('plus/push.html');">
+				<span class="item">Push</span>
+			</li>
+			<li id="runtime" onclick="clicked('plus/runtime.html');">
+				<span class="item">Runtime</span>
+			</li>
+			<li id="share" onclick="clicked('plus/share.html');">
+				<span class="item">Share</span>
+			</li>
+			<li id="speech" onclick="clicked('plus/speech.html');">
+				<span class="item">Speech</span>
+			</li>
+			<li id="statistic" onclick="clicked('plus/statistic.html');">
+				<span class="item">Statistic</span>
+			</li>
+			<li id="storage" onclick="clicked('plus/storage.html');">
+				<span class="item">Storage</span>
+			</li>
+			<li id="ui" onclick="clicked('plus/ui.html');">
+				<span class="item">UI</span>
+			</li>
+			<li id="xmlhttprequest" onclick="clicked('plus/xhr.html');">
+				<span class="item">XMLHttpRequest</span>
+			</li>
+			<li id="zip" onclick="clicked('plus/zip.html');">
+				<span class="item">ZIP</span>
+			</li>
+			<li id="njs" onclick="clicked('plus/njs.html')">
+				<span class="item">Native.JS</span>
+			</li>
+		</ul>
+		</div>
+	</body>
+</html>

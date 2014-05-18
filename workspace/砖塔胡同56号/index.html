@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>砖塔胡同56号</title>
+    <link id="css" rel="stylesheet" href="css/jquery.mobile-1.4.2.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mobile-1.4.2.js"></script>
+    <script>
+    	function callback(){getlist(json);}
+    	function getlist(json){
+    		if(json==undefined){
+    			json=JSON.parse(localStorage.getItem("news"));
+    			if(json==null){
+    				query();
+    			}else{
+    				getlist(json);
+    			}
+    			
+    		}else{
+    			document.getElementById("news20").innerHTML='';
+    			for(var i in json){
+    				;
+	    			var li=document.createElement("li");
+	    			var a=document.createElement("a");
+	    			a.title=json[i].bza;
+	    			a.innerHTML=json[i].title;
+	    			a.index=i;
+	    			a.className="ui-btn ui-btn-icon-right ui-icon-carat-r";
+	    			a.onclick=function(){
+	    				document.getElementById("title").innerHTML=json[this.index].title;
+	    				
+	    				document.getElementById("text").innerHTML=json[this.index].text;
+	    				
+	    				document.getElementById("news20").style.display="none";
+	    				document.getElementById("page").style.display="block";
+	    				document.getElementById("return").style.display="block";
+	    				document.getElementById("get").style.display="none";
+	    			}
+	    			li.appendChild(a);
+	    			document.getElementById("news20").appendChild(li);
+	    		}
+    			$("#get").text('刷新');
+    			localStorage.setItem("news", JSON.stringify(json));
+    		}
+    	}
+    	function query(){
+    		$("#get").text("新闻获取中。。。");
+    		var s=document.createElement("script");
+    		s.src="http://codetyphon.jd-app.com/?act=mobile&callback="+callback;
+    		document.getElementById("jsbox").innerHTML="";
+    		document.getElementById("jsbox").appendChild(s);
+    	}
+    	function init(){
+    		$("#mypanel").trigger("updatelayout");
+    		getlist();
+    		setInterval(function(){
+				query();
+			},1000*60);
+    	}
+    	window.onload=init;
+    </script>
+<body>
+	<div data-role="page">
+		<div data-role="panel" id="mypanel">
+			<h2>砖塔胡同56号</h2>
+			<p>咸鱼翻身前传</p>
+			<p>这个应用是来做嘛的？只因无聊而记录的一些只言片语。</p>
+			<p>新浪微博 @砖塔胡同56号</p>
+			<p>QQ：1907861130</p>
+			<p>客户端半小时内在线<script src="http://codetyphon.jd-app.com/?act=online&host=android"></script>人</p>
+			<a href="#" data-rel="close">关闭</a>
+		    <!-- panel content goes here -->
+		</div><!-- /panel -->
+		<div id="jsbox"></div>
+			<div data-role="navbar">
+			    <ul>
+			        <li><a href="#" class="ui-btn-active">砖塔胡同56号</a></li>
+			        <li><a href="#mypanel" class="ui-btn-active">关于我</a></li>
+			    </ul>
+			</div><!-- /navbar -->
+		<button id="get" onclick="query();">刷新</button>
+		<button id="return" style="display: none;" onclick='document.getElementById("news20").style.display="block";document.getElementById("page").style.display="none";document.getElementById("return").style.display="none";document.getElementById("get").style.display="block";'>返回</button>
+		<div id="page">
+			<h2 id="title"></h2>
+			<p id="bza"></p>
+			<p id="text"></p>
+			<p id="xj"></p>
+		</div>
+		<ul id="news20" data-role="listview" data-inset="true"></ul>
+		<div id="footer">
+		</div>
+</body>
+</html>

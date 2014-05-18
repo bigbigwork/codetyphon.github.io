@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<meta name="HandheldFriendly" content="true"/>
+		<meta name="MobileOptimized" content="320"/>
+		<title>Hello H5+</title>
+		<script type="text/javascript" src="../js/common.js"></script>
+		<script type="text/javascript">
+function switchFullscreen() {
+	plus.ui.setFullscreen( !plus.ui.isFullscreen() );
+}
+var floatWin=null;
+function floatWindow() {
+	if ( floatWin ) { // 避免快速多次点击创建多个窗口
+		return;
+	}
+	floatWin = plus.ui.createWindow( 'ui_float.html', {name:'float',width:'200px',height:'200px',margin:"auto",background:"rgba(0,0,0,0.8)"} );
+	floatWin.addEventListener( 'loaded', function () {
+		floatWin.show( 'zoom-out', 300 );
+		floatWin = null;
+	}, false );
+}
+function pickDate() {
+	outSet( "打开系统日期选择框：");
+	plus.ui.pickDate( function( date ) {
+		outLine( date );
+	}, function ( e ) {
+		outSet( "取消日期选择！" );
+	}, {title:"请选择日期"} );
+}
+function pickTime() {
+	outSet( "打开系统时间选择框：");
+	plus.ui.pickTime( function ( time ) {
+		outLine( time );
+	}, function ( e ) {
+		outSet( "取消选择时间！" );
+	}, {title:"请选择时间"} );
+}
+function showWaiting() {
+	var w = plus.ui.createWaiting( "　　 请等待...　　 \n5" );
+	var n = 5;
+	var t = setInterval(function(){
+		n--;
+		w.setTitle( "　　 请等待...　　 \n"+n );
+		if ( n <= 0 ) {
+			clearInterval( t );
+			w.close();
+		}
+	}, 1000 );
+}
+function showAlert() {
+	plus.ui.alert( "请注意！\n我是系统提示框" );
+}
+function showConfirm() {
+	plus.ui.confirm( "请确认是否弹出系统框？" );
+}
+function showPrompt() {
+	plus.ui.prompt( "请输入您的姓名", function ( i, s ) {
+		if ( 0 == i ) {
+			plus.ui.alert( "你的姓名是："+s );
+		}
+	}, "", "您的姓名" );
+}
+function showToast() {
+	plus.ui.toast( "您好！现在正在Android平台上运行！" );
+}
+		</script>
+		<link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8"/>
+	</head>
+	<body>
+		<header>
+			<div class="nvbt" onclick="back();"><div class="iback"></div></div>
+			<div class="nvtt">UI</div>
+			<div class="nvbt" onclick="clicked('../doc/ui.html');"><div class="idoc"></div></div>
+		</header>
+		<div id="dcontent" class="dcontent">
+			<br/>
+			<div class="button" onclick="clicked('ui_animation.html');">系统原生动画</div>
+			<div class="button" onclick="clicked('ui_embed.html');">内嵌窗口</div>
+			<!--<div class="button" onclick="clicked('ui_dock.html');">停靠窗口</div>-->
+			<br/>
+			<ul class="dlist">
+				<li class="ditem" onclick="switchFullscreen();">全屏/非全屏切换</li>
+				<li class="ditem" onclick="floatWindow();">创建悬浮窗口</li>
+				<li class="ditem" onclick="pickDate();">系统日期选择框</li>
+				<li class="ditem" onclick="pickTime();">系统时间选择框</li>
+				<li class="ditem" onclick="showWaiting();">等待框</li>
+				<li class="ditem" onclick="showAlert();">提示框</li>
+				<li class="ditem" onclick="showConfirm();">确认框</li>
+				<li class="ditem" onclick="showPrompt();">输入框</li>
+				<li class="ditem" onclick="showToast();">自动消失提示框(Android)</li>
+			</ul>
+		</div>
+		<div id="output">
+UI管理系统原生控件，可用于创建原生窗口（用于展现html页面）、系统原生控件，也可扩展各种自定义原生控件。
+		</div>
+	</body>
+</html>
