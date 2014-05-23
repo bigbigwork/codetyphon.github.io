@@ -37,9 +37,7 @@
 					objs[i].moveD(objs[i].pointD.left*0.5,objs[i].pointD.top*0.5);
 				}
 			}
-
-			
-			//console.log(scale);
+			update();
 		}
 		function help(){
 			$('help').show();

@@ -31,7 +31,7 @@
 					objs[i].height*=0.5;
 					objs[i].top*=0.5;
 					objs[i].left*=0.5;
-					objs[i].update();
+					
 				}else{
 					objs[i].moveA(objs[i].pointA.left*0.5,objs[i].pointA.top*0.5);
 					objs[i].moveD(objs[i].pointD.left*0.5,objs[i].pointD.top*0.5);
