@@ -1,19 +1,43 @@
 /* app functions */
 		function big(){
+			/*
 			if(scale==0){
 				scale=2;
 			}else{
 				scale*=2;
 			}
 			ctx.scale(scale,scale);
+			*/
+			clearCanvas();
+			for(i=0;i<objs.length;i++){
+				if(objs[i].type!='Line'){
+					objs[i].width*=2;
+					objs[i].height*=2;
+					objs[i].top*=2;
+					objs[i].left*=2;
+				}else{
+					objs[i].moveA(objs[i].pointA.left*2,objs[i].pointA.top*2);
+					objs[i].moveD(objs[i].pointD.left*2,objs[i].pointD.top*2);
+				}
+			}
 			update();
 			//console.log(scale);
 		}
 		function small(){
-			scale*=0.5;
-			ctx.scale(scale,scale);
+			clearCanvas();
+			for(i=0;i<objs.length;i++){
+				if(objs[i].type!='Line'){
+					objs[i].width*=0.5;
+					objs[i].height*=0.5;
+					objs[i].top*=0.5;
+					objs[i].left*=0.5;
+					objs[i].update();
+				}else{
+					objs[i].moveA(objs[i].pointA.left*0.5,objs[i].pointA.top*0.5);
+					objs[i].moveD(objs[i].pointD.left*0.5,objs[i].pointD.top*0.5);
+				}
+			}
 			update();
-			//console.log(scale);
 		}
 		function help(){
 			$('help').show();
@@ -246,13 +270,23 @@
 		function clearAll(){
 			ctx.clearRect(0,0,660,520);
 			objs=new Array();
-			select_obj='';
+			select_obj=null;
+			on_obj=null;
 		}
 		function update(){
 			clearCanvas();
 			//console.log('in update objs length:'+objs.length);
+			
 			for(i=0;i<objs.length;i++){
-				objs[i].update();
+				if(objs[i].type=='Line'){
+					objs[i].update();
+				}
+				//console.log(i);
+			}for(i=0;i<objs.length;i++){
+				if(objs[i].type!='Line'){
+					objs[i].update();
+				}
+				
 				//console.log(i);
 			}
 		}
