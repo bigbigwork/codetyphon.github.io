@@ -13,7 +13,9 @@ function getKeyCode(e) {
 	var e = e || window.event;
 	keyCode = e.keyCode || e.which || e.charCode;
 	if(keyCode==46){
-		del(objs[obj_index].id);
+		if(select_obj!=null){
+			del(select_obj);
+		}
 	}
 }
 function allowDrop(ev){

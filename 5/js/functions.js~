@@ -188,7 +188,10 @@
 			newobj.width=obj.width;
 			newobj.height=obj.height;
 			newobj.text=obj.text;
-			
+			newobj.pu=obj.pu;
+			newobj.pr=obj.pr;
+			newobj.pd=obj.pd;
+			newobj.pl=obj.pl;
 			objs.push(newobj);
 		}
 		function load_obj_3(obj){
@@ -205,6 +208,10 @@
 			newobj.width=obj.width;
 			newobj.height=obj.height;
 			newobj.text=obj.text;
+			newobj.pu=obj.pu;
+			newobj.pr=obj.pr;
+			newobj.pd=obj.pd;
+			newobj.pl=obj.pl;
 			objs.push(newobj);
 		}
 		function load_line(obj){
@@ -262,13 +269,15 @@
 			}
 		}
 		function del(id){
-			for(i=0;i<objs.length;i++){
-				if(objs[i].id==id){
-					objs.splice(i,1);
-					break;
+			if(select_obj!=null){
+				for(i=0;i<objs.length;i++){
+					if(objs[i].id==select_obj.id){
+						objs.splice(i,1);
+						break;
+					}
 				}
+				update();
 			}
-			update();
 		}
 		function addobjs(obj){
 			obj.id=id++;

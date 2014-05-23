@@ -242,7 +242,7 @@ function on_mouse_move(){
 			case 'out':
 				break;
 			case 'linedown':
-				if(select_obj.pu==null){
+				if(select_obj.pd==null){
 					showPoint();
 					ctx.lineWidth=3;
 					ctx.beginPath();

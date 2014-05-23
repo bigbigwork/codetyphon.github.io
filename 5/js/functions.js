@@ -268,14 +268,16 @@
 				}
 			}
 		}
-		function del(id){
-			for(i=0;i<objs.length;i++){
-				if(objs[i].id==id){
-					objs.splice(i,1);
-					break;
+		function del(select_obj){
+			if(select_obj!=null){
+				for(i=0;i<objs.length;i++){
+					if(objs[i].id==select_obj.id){
+						objs.splice(i,1);
+						break;
+					}
 				}
+				update();
 			}
-			update();
 		}
 		function addobjs(obj){
 			obj.id=id++;
