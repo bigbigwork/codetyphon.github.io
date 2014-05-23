@@ -179,6 +179,17 @@
 		}
 		Obj_2.prototype.update=function(){
 			this.path();
-			this.prinText();
+			this.prinText();if(this==select_obj&&this.pr!=null){
+				eval('this.prline.move'+this.prat+'(this.pointRight().left,this.pointRight().top)');
+			}
+			if(this==select_obj&&this.pu!=null){
+				eval('this.puline.move'+this.puat+'(this.pointUp().left,this.pointUp().top)');
+			}
+			if(this==select_obj&&this.pl!=null){		
+				eval('this.plline.move'+this.plat+'(this.pointLeft().left,this.pointLeft().top)');
+			}
+			if(this==select_obj&&this.pd!=null){		
+				eval('this.pdline.move'+this.pdat+'(this.pointDown().left,this.pointDown().top)');
+			}
 		}
 		//

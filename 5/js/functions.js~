@@ -90,6 +90,17 @@
 										}
 										
 									}
+								}if(objs[i].pd!=null){
+									for(ii=0;ii<objs.length;ii++){
+							
+										if(objs[ii].type=='Line'&&objs[ii].id==objs[i].pd.lineId){
+											//objs[i].pr.lineId objs[i].pr.at
+											console.log(objs[ii].path);
+											objs[i].pdline=objs[ii];// why it not work?
+											objs[i].pdat=objs[i].pd.at;
+										}
+										
+									}
 								}
 							}
 						}

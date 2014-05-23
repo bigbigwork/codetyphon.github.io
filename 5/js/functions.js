@@ -188,7 +188,10 @@
 			newobj.width=obj.width;
 			newobj.height=obj.height;
 			newobj.text=obj.text;
-			
+			newobj.pu=obj.pu;
+			newobj.pr=obj.pr;
+			newobj.pd=obj.pd;
+			newobj.pl=obj.pl;
 			objs.push(newobj);
 		}
 		function load_obj_3(obj){
@@ -205,6 +208,10 @@
 			newobj.width=obj.width;
 			newobj.height=obj.height;
 			newobj.text=obj.text;
+			newobj.pu=obj.pu;
+			newobj.pr=obj.pr;
+			newobj.pd=obj.pd;
+			newobj.pl=obj.pl;
 			objs.push(newobj);
 		}
 		function load_line(obj){
