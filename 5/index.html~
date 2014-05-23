@@ -118,7 +118,6 @@
 		<script src="js/event.js"></script>
 		<script src="js/event_mouse_down.js"></script>
 		<script src="js/event_mouse_up.js"></script>
-		<script src="js/event_mouse_move.js"></script>
 
 		<script src="js/bind.js"></script>
 		<script src="js/init.js"></script>
