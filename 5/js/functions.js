@@ -74,6 +74,7 @@
 						
 						$('selectFiles').hide();
 						var jobjs=$.openObj(this.id);
+						objs=new Array();
 						loadObjs(jobjs);
 						for(i=0;i<objs.length;i++){
 							//console.log(i);
@@ -170,6 +171,9 @@
 					case "obj_3":
 						load_obj_3(objs[i]);
 					break;
+					case "obj_4":
+						load_obj_4(objs[i]);
+					break;
 					case "Line":
 						load_line(objs[i]);
 					break;
@@ -220,6 +224,26 @@
 		}
 		function load_obj_3(obj){
 			var newobj=new Obj_3();
+			newobj.id=obj.id;
+			newobj.type=obj.type;
+			newobj.background=obj.background;
+			newobj.color=obj.color;
+			newobj.border=obj.border;
+			newobj.border_color=obj.border_color;
+			newobj.z_index=obj.z_index;
+			newobj.top=obj.top;
+			newobj.left=obj.left;
+			newobj.width=obj.width;
+			newobj.height=obj.height;
+			newobj.text=obj.text;
+			newobj.pu=obj.pu;
+			newobj.pr=obj.pr;
+			newobj.pd=obj.pd;
+			newobj.pl=obj.pl;
+			objs.push(newobj);
+		}
+		function load_obj_4(obj){
+			var newobj=new Obj_4();
 			newobj.id=obj.id;
 			newobj.type=obj.type;
 			newobj.background=obj.background;

@@ -58,6 +58,16 @@ function drop(ev){
 			obj.top-=obj.height/2;
 			obj.update();
 		break;
+		case "obj_4":
+			var obj=new Obj_4();
+			addobjs(obj);
+			var bbox =canvas.getBoundingClientRect();
+			obj.left=ev.pageX-bbox.left *(canvas.width / bbox.width);
+			obj.top=ev.pageY- bbox.top  * (canvas.height / bbox.height);
+			obj.left-=obj.width/2;
+			obj.top-=obj.height/2;
+			obj.update();
+		break;
 		default:
 			alert(id+" 工具正在开发中，请稍后。。。");
 	}
