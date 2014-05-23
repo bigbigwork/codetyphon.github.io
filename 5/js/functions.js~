@@ -268,14 +268,20 @@
 				}
 			}
 		}
-		function del(id){
+		function del(select_obj){
 			if(select_obj!=null){
+			console.log(select_obj);
 				for(i=0;i<objs.length;i++){
 					if(objs[i].id==select_obj.id){
 						objs.splice(i,1);
+						console.log(select_obj);
 						break;
 					}
 				}
+				select_obj=null;
+				on_obj=null;
+				gotowhere='out';
+				$('myCanvas').style("cursor","default");
 				update();
 			}
 		}
