@@ -279,6 +279,7 @@
 					}
 				}
 				select_obj=null;
+				console.log(select_obj);
 				on_obj=null;
 				gotowhere='out';
 				$('myCanvas').style("cursor","default");

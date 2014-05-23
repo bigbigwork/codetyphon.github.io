@@ -14,7 +14,7 @@ function getKeyCode(e) {
 	keyCode = e.keyCode || e.which || e.charCode;
 	if(keyCode==46){
 		if(select_obj!=null){
-			del(select_obj);
+			del();
 		}
 	}
 }

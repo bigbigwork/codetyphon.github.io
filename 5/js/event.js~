@@ -424,6 +424,7 @@ function on_mouse_move(){
 			case null:
 				
 				//
+				console.log("select null");
 					clearCanvas();
 					for(i=0;i<objs.length;i++){
 						if(objs[i].type!='Line'){
@@ -431,7 +432,7 @@ function on_mouse_move(){
 							if(ctx.isPointInPath(p.x,p.y)){
 								on_obj=objs[i];
 								gotowhere="over";
-								console.log("no obj selected and over at:"+on_obj.id+' for '+on_obj.type);
+								
 								$('myCanvas').style("cursor","move");
 								break;
 							}else{

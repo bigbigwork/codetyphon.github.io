@@ -268,7 +268,7 @@
 				}
 			}
 		}
-		function del(select_obj){
+		function del(){
 			if(select_obj!=null){
 			console.log(select_obj);
 				for(i=0;i<objs.length;i++){
