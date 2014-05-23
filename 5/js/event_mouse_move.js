@@ -66,7 +66,56 @@ function on_mouse_move(){
 				}
 				break;
 			case 'lineup':
-				showPoint();
+				if(select_obj.pu==null){
+					showPoint();
+					ctx.lineWidth=3;
+					ctx.beginPath();
+					ctx.moveTo(select_obj.pointUp().left,select_obj.pointUp().top);
+					//ctx.lineTo(p.x+50,select_obj.pointLeft().top);
+					//ctx.lineTo(p.x+50,p.y);
+					ctx.lineTo(p.x,p.y);
+					ctx.strokeStyle="red";
+					ctx.stroke();
+					ctx.lineWidth=1;
+					//
+					for(i=0;i<objs.length;i++){
+						if(objs[i].type!='Line'){
+							if(objs[i].pu==null){
+							objs[i].selectDown();
+								if(ctx.isPointInPath(p.x,p.y)){
+									$('myCanvas').style("cursor","crosshair");
+									objs[i].selectDownOver();
+									target_obj=objs[i];
+									target_at="down";
+									
+									break;
+								}
+							}
+							if(objs[i].pl==null){
+								objs[i].selectLeft();
+								if(ctx.isPointInPath(p.x,p.y)){
+									$('myCanvas').style("cursor","crosshair");
+									objs[i].selectLeftOver();
+									target_obj=objs[i];
+									target_at="left";
+									
+									break;
+								}
+							}
+							if(objs[i].pr==null){
+								objs[i].selectRight();
+								if(ctx.isPointInPath(p.x,p.y)){
+									$('myCanvas').style("cursor","crosshair");
+									objs[i].selectRightOver();
+									target_obj=objs[i];
+									target_at="right";
+									
+									break;
+								}
+							}
+						}
+					}
+				}
 				break;
 			case 'lineleft':
 				console.log('left!');
