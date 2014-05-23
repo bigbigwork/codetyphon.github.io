@@ -62,8 +62,7 @@ function on_mouse_up(){
 						target_obj.pr={'lineId':line.id,'at':'D'};
 						target_obj.prline=line;
 						target_obj.prat='D';
-					}
-					if(target_at=='left'){
+					}if(target_at=='left'){
 						target_obj.pl={'lineId':line.id,'at':'D'};
 						target_obj.plline=line;
 						target_obj.plat='D';

@@ -106,17 +106,6 @@ function on_mouse_move(){
 									break;
 								}
 							}
-							if(objs[i].pr==null){
-								objs[i].selectRight();
-								if(ctx.isPointInPath(p.x,p.y)){
-									$('myCanvas').style("cursor","crosshair");
-									objs[i].selectRightOver();
-									target_obj=objs[i];
-									target_at="right";
-									
-									break;
-								}
-							}
 						}
 					}
 				}
