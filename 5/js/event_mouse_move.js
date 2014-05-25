@@ -80,7 +80,7 @@ function on_mouse_move(){
 					//
 					for(i=0;i<objs.length;i++){
 						if(objs[i].type!='Line'){
-							if(objs[i].pu==null){
+							if(objs[i].pd==null){
 							objs[i].selectDown();
 								if(ctx.isPointInPath(p.x,p.y)){
 									$('myCanvas').style("cursor","crosshair");
@@ -166,6 +166,17 @@ function on_mouse_move(){
 									break;
 								}
 							}
+							if(objs[i].pd==null){
+							objs[i].selectDown();
+								if(ctx.isPointInPath(p.x,p.y)){
+									$('myCanvas').style("cursor","crosshair");
+									objs[i].selectDownOver();
+									target_obj=objs[i];
+									target_at="down";
+									
+									break;
+								}
+							}
 						}
 					}
 				}
@@ -213,6 +224,17 @@ function on_mouse_move(){
 									objs[i].selectLeftOver();
 									target_obj=objs[i];
 									target_at="left";
+									break;
+								}
+							}
+							if(objs[i].pd==null){
+							objs[i].selectDown();
+								if(ctx.isPointInPath(p.x,p.y)){
+									$('myCanvas').style("cursor","crosshair");
+									objs[i].selectDownOver();
+									target_obj=objs[i];
+									target_at="down";
+									
 									break;
 								}
 							}
