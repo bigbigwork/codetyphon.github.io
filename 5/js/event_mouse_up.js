@@ -97,15 +97,19 @@ function on_mouse_up(){
 						target_obj.puline=line;
 						target_obj.puat='D';
 					}
-					if(target_at=='right'){
-						target_obj.pr={'lineId':line.id,'at':'D'};
-						target_obj.prline=line;
-						target_obj.prat='D';
+					if(target_at=='down'){
+						target_obj.pd={'lineId':line.id,'at':'D'};
+						target_obj.pdline=line;
+						target_obj.pdat='D';
 					}
 					if(target_at=='left'){
 						target_obj.pl={'lineId':line.id,'at':'D'};
 						target_obj.plline=line;
 						target_obj.plat='D';
+					}if(target_at=='right'){
+						target_obj.pr={'lineId':line.id,'at':'D'};
+						target_obj.prline=line;
+						target_obj.prat='D';
 					}
 				
 				}
@@ -131,6 +135,11 @@ function on_mouse_up(){
 						target_obj.pu={'lineId':line.id,'at':'D'};
 						target_obj.puline=line;
 						target_obj.puat='D';
+					}
+					if(target_at=='down'){
+						target_obj.pd={'lineId':line.id,'at':'D'};
+						target_obj.pdline=line;
+						target_obj.pdat='D';
 					}
 					if(target_at=='left'){
 						target_obj.pl={'lineId':line.id,'at':'D'};
