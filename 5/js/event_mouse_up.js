@@ -18,11 +18,7 @@ function on_mouse_up(){
 				gotowhere="none";
 				select_obj=null;
 				if(target_obj!=null){
-					if(target_at=='up'){
-						target_obj.pu={'lineId':line.id,'at':'D'};
-						target_obj.puline=line;
-						target_obj.puat='D';
-					}
+					
 					if(target_at=='down'){
 						target_obj.pd={'lineId':line.id,'at':'D'};
 						target_obj.pdline=line;
