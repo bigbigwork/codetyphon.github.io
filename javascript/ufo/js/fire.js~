@@ -1,0 +1,21 @@
+function Fire(x,y){
+	this.x=x;
+	this.y=y;
+	this.live=1;
+	this.tom_y=y;
+	this.width=game.imageFire.width;
+	this.height=game.imageFire.height;
+	this.time=0;
+}
+Fire.prototype.show=function(){
+	if(this.live==1){
+		this.time+=0.01;
+		this.y-=(3-this.time*1.98);
+		if(this.y<0){
+			this.live--;
+		}else{
+			
+			ctx.drawImage(game.imageFire,this.x,this.y);
+		}
+	}
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<!--[if IE]>
+			<script type="text/javascript" src="excanvas.js" onload="explorercanvasload"></script>
+		<![endif]-->
+		<!--[if lt IE 9]> <script src="dist/html5shiv.js"></script> <![endif]-->
+	</head>
+<body>
+
+
+<canvas id="myCanvas" width="800" height="500" style="border:solid #ccc 1px;">your browser does not support the canvas tag </canvas>
+
+<script type="text/javascript">
+var canvas;
+var ctx;
+
+function Fuck(){
+	this.x=Math.floor(Math.random() * (800));
+	this.y=20;
+	this.color='';
+	this.live=1;
+	this.width=Math.floor(Math.random() * (60));
+	this.height=this.width;
+	this.speed=1+Math.floor(Math.random() * (3));
+}
+Fuck.prototype.randColor=function(){
+	var r = Math.floor(Math.random() * (254)),
+	   	g = Math.floor(Math.random() * (254)),
+	    b = Math.floor(Math.random() * (254));
+	this.color = "rgba("+r+", "+g+", "+b+",0.5)";
+	return this;
+}
+Fuck.prototype.show=function(){
+	ctx.fillStyle=this.color;
+	this.y+=this.speed;
+	if(this.live>0){
+		if(this.y>500){
+			objs.push(new Fuck().randColor());
+			this.live--;
+		}
+		ctx.fillRect(this.x,this.y,this.width,this.height);
+	}
+	return this;
+}
+
+
+function Tom(){
+	this.x=300;
+	this.y=480;
+	this.color='';
+	this.width=20;
+	this.height=20;
+}
+Tom.prototype.toLeft=function(){
+	this.x-=5;
+}
+Tom.prototype.toRight=function(){
+	this.x+=5;
+}
+Tom.prototype.toUp=function(){
+	this.y-=5;
+}
+Tom.prototype.toDown=function(){
+	this.y+=5;
+}
+Tom.prototype.fire=function(){
+	fires.push(new Fire(this.x+Math.floor(this.width/2)-1,this.y));
+}
+Tom.prototype.randColor=function(){
+	var r = Math.floor(Math.random() * (254)),
+	   	g = Math.floor(Math.random() * (254)),
+	    b = Math.floor(Math.random() * (254));
+	this.color = "rgba("+r+", "+g+", "+b+",0.5)";
+	return this;
+}
+Tom.prototype.show=function(){
+	//ctx.fillStyle=this.color;
+	ctx.fillStyle="rgba(255,0,0,1)";
+	ctx.fillRect(this.x,this.y,this.width,this.height);
+	return this;
+}
+
+function Fire(x,y){
+	this.x=x;
+	this.y=y;
+	this.live=1;
+}
+Fire.prototype.show=function(){
+	if(this.live==1){
+		ctx.fillStyle="rgba(255,0,0,1)";
+		this.y-=3;
+		if(this.y<0){
+			this.live--;
+		}else{
+			ctx.fillRect(this.x,this.y,2,10);
+		}
+	}
+	return this;
+}
+
+var objs=new Array();
+var fucks=new Array();
+var fires=new Array();
+window.onload = function() {
+	canvas=document.getElementById('myCanvas');
+	ctx=canvas.getContext('2d');
+	tom=new Tom().randColor().show();
+	objs.push(tom);
+	fucks.push(new Fuck().randColor());
+	fucks.push(new Fuck().randColor());
+	fucks.push(new Fuck().randColor());
+	fucks.push(new Fuck().randColor());
+	setInterval(function(){
+		ctx.clearRect(0, 0, canvas.width,canvas.height);
+		for(i=0;i<objs.length;i++){
+			objs[i].show();
+		}
+		for(i=0;i<fucks.length;i++){
+			fucks[i].show();
+		}
+		for(i=0;i<fires.length;i++){
+			fires[i].show();
+		}
+	},30);
+};
+
+function getKeyCode(e) {
+	var keyCode = 0;
+	var e = e || window.event;
+	keyCode = e.keyCode || e.which || e.charCode;
+	//alert(keyCode);
+	if(keyCode==119){
+		tom.toUp();//w
+	}
+	if(keyCode==115){
+		tom.toDown();//s
+	}
+	if(keyCode==97){
+		tom.toLeft();//a
+	}
+	if(keyCode==100){
+		tom.toRight();//d
+	}
+	if(keyCode==109){
+		//w
+	}
+	if(keyCode==32){
+		tom.fire();//fire
+	}
+}
+document.onkeypress=getKeyCode;
+</script>
+</body>
+</html>

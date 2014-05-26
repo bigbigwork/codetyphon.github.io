@@ -1,0 +1,136 @@
+<html>
+	<head>
+		<title>focus-demo</title>
+	</head>
+	<style>
+		#focus{
+			width:300px;
+			height:200px;
+			background:#ccc;
+			overflow:hidden;
+			border-radius:15px;
+		}
+	</style>
+	<script>
+		function Focus(focus_id){
+			this.array_images=new Array();
+			this.array_links=new Array();
+			this.focus_canvas;
+			this.pic_count=0;
+			this.this_pic_number=0;
+			this.id=focus_id;
+			this.focus_canvas=document.getElementById(this.id);
+		}	
+		Focus.prototype.init=function(){
+			this.focus_canvas.style.position='absolute';
+			this.array_images.push("focus_images/1.jpg");
+			this.array_links.push("http://www.dashanxuetang.com");
+			this.array_images.push("focus_images/2.jpg");
+			this.array_links.push("http://www.dashanxuetang.com");
+			this.array_images.push("focus_images/3.jpg");
+			this.array_links.push("http://www.dashanxuetang.com");
+			this.array_images.push("focus_images/4.jpg");
+			this.array_links.push("http://www.dashanxuetang.com");
+			this.array_images.push("focus_images/5.jpg");
+			this.array_links.push("http://www.dashanxuetang.com");
+			this.array_images.push("focus_images/6.jpg");
+			this.array_links.push("http://www.dashanxuetang.com");
+			
+			this.pic_count=this.array_images.length;
+			this.this_pic_number=0;
+			
+			for(i=0;i<this.array_images.length;i++){
+				var obj=document.createElement('img');
+				obj.id='focus_image_'+i;
+				obj.width='300';
+				obj.height='200';
+				obj.style.width="300px";
+				obj.style.height='200px';
+				obj.style.top='0px';
+				obj.style.left='0px';
+				obj.style.position='absolute';
+				obj.src=this.array_images[i];
+				obj.link=this.array_links[i];
+				obj.onclick=function(){
+					window.open(this.link);
+				}
+				this.focus_canvas.appendChild(obj);
+				var obj_cp=document.createElement('obj');
+				obj_cp.number=i;
+				obj_cp.pobj=this;// ^_^
+				obj_cp.id='focus_cp_'+i;
+				obj_cp.style.width="20px";
+				obj_cp.style.height='20px';
+				obj_cp.style.top='170px';
+				obj_cp.style.left=300-35-(20+2)*i+'px';
+				obj_cp.innerHTML=this.pic_count-i;
+				obj_cp.style.position='absolute';
+				obj_cp.style.zIndex='900';
+				obj_cp.style.textAlign='center';
+				obj_cp.style.fontSize='10px';
+				obj_cp.style.lineHeight='20px';
+				obj_cp.style.background='#fff';
+				obj_cp.style.borderRradius='10px';
+				obj_cp.style.cursor='pointer';
+				obj_cp.onmouseover=function(){
+					this.pobj.show(this.number);
+				}
+				obj_cp.onclick=function(){
+					window.open(this.pobj.array_links[this.number]);
+				}
+				this.focus_canvas.appendChild(obj_cp);
+			}
+		}
+		Focus.prototype.show=function(pic_number){
+			this.this_pic_number=pic_number;
+			for(i=0;i<this.pic_count;i++){
+				document.getElementById('focus_image_'+i).style.display='none';
+			}
+			document.getElementById('focus_image_'+this.this_pic_number).style.display='block';
+			document.getElementById('focus_image_'+this.this_pic_number).style.opacity=0.1;
+			(function(obj){
+				obj.time=0;
+				obj.opacity=0.1;
+				obj.to='a';
+				obj.timer=setInterval(function(){
+					if(obj.to=='a'){
+						obj.time++;
+						
+						if(obj.time<100){
+							obj.opacity+=0.01;
+						}
+						if(obj.time==150){
+							obj.to='b';
+						}
+					}
+					if(obj.to=='b'){
+						obj.time--;
+						obj.opacity-=0.01;
+						if(obj.time==0){
+							clearInterval(obj.timer);
+						}
+					}
+					obj.style.opacity=obj.opacity;
+				},30);
+			})(document.getElementById('focus_image_'+this.this_pic_number));
+		}
+		Focus.prototype.next=function(){
+			this.show(this.this_pic_number);
+			if(this.this_pic_number+1==this.pic_count){
+				this.this_pic_number=0;
+			}else{
+				this.this_pic_number++;
+			}
+		}
+		window.onload=function(){
+			var focus=new Focus("focus");
+			focus.init();
+			setInterval(function(){
+				focus.next();
+			},6500);
+		}
+		</script>
+	<body>
+		<div id="focus"></div>
+	</body>
+</html>

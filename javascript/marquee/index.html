@@ -1,0 +1,62 @@
+<div id="marquee_images">1</div>
+<style>
+#marquee_images{
+	width:900px;
+	height:149px;
+	overflow:hidden;
+	background:#ccc;
+	position:absolute;
+	top:100px;
+	left:100px;
+}
+</style>
+<script>
+	var __marquee_images_width=960;
+	var __img_w=239;
+	var __img_w_kx=5;
+	var __img_h=149;
+	var __marquee=1;
+	var __speed=30;
+
+	var images=new Array();
+	images=['marquee_images/1.jpg','marquee_images/2.jpg','marquee_images/3.jpg','marquee_images/4.jpg','marquee_images/1.jpg','marquee_images/2.jpg','marquee_images/3.jpg','marquee_images/4.jpg'];
+	if(images.length*__img_w+(images.length-1)*__img_w_kx<__marquee_images_width){
+		//alert('error #0265');
+	}
+	document.getElementById('marquee_images').innerHTML='';
+	document.getElementById('marquee_images').onmouseover=function(){
+		__marquee=0;
+	}
+	document.getElementById('marquee_images').onmouseout=function(){
+		__marquee=1;
+	}
+	for(i=0;i<images.length;i++){
+		var obj = document.createElement("img");
+		obj.id="img_"+i;
+		obj.src=images[i];
+		obj.width=__img_w;
+		obj.height=__img_h;
+		obj.style.position='absolute';
+		obj.style.top='0px';
+		obj.left=__img_w*i;
+		obj.style.left=obj.left+'px';
+		obj.onclick=function(){
+			window.open(this.src);
+		}
+		document.getElementById('marquee_images').appendChild(obj);
+	}
+	setInterval(function(){ 
+		if(__marquee==1){
+			for(i=0;i<images.length;i++){
+				document.getElementById('img_'+i).left-=1;
+				if(document.getElementById('img_'+i).left+__img_w<0){
+					document.getElementById('img_'+i).left=(images.length-1)*__img_w;
+				}
+				document.getElementById('img_'+i).style.left=document.getElementById('img_'+i).left+'px';
+			}
+		}								
+	},__speed); 
+	/*
+	#0265  图片的数量不够
+	*/
+</script>
