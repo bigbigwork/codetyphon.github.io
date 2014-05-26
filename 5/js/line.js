@@ -7,6 +7,11 @@
 			this.border=2;
 			this.border_color="#999";
 			this.z_index=0;
+			this.length = 0; //两点之间的长度
+			this.radii = 0; //圆点的半径
+			this.arrow_len = 10; //箭头的长度
+			this.color = "#ffff00";
+			this.rotation = 0;
 			//
 			this.pointA={'left':5,'top':10};
 			this.pointB={'left':5,'top':10};
@@ -14,14 +19,41 @@
 			this.pointD={'left':5,'top':10};
 		}
 		Line.prototype.path=function(){
-			ctx.lineWidth = this.border;
-			ctx.beginPath();
-			ctx.moveTo(this.pointA.left,this.pointA.top);
+			//ctx.lineWidth = this.border;
+			//ctx.beginPath();
+			//ctx.moveTo(this.pointA.left,this.pointA.top);
 			//ctx.lineTo(this.pointB.left,this.pointB.top);
 			//ctx.lineTo(this.pointC.left,this.pointC.top);
-			ctx.lineTo(this.pointD.left,this.pointD.top);			
-			ctx.strokeStyle="green";
-			ctx.stroke();
+			//ctx.lineTo(this.pointD.left,this.pointD.top);			
+			//ctx.strokeStyle="green";
+			//ctx.stroke();
+			//
+			//
+			 var dy = this.pointA.top - this.pointD.top;
+			    var dx = this.pointA.left - this.pointD.left;
+			    this.rotation = Math.atan2(dy, dx);
+			    if (dy == 0) this.length = Math.abs(dx);
+			    else if (dx == 0) this.length = Math.abs(dy);
+			    else this.length = Math.sqrt(dx * dx + dy * dy);
+			//
+			  ctx.save();
+			  ctx.translate(this.start_x, this.start_y);
+			  ctx.rotate(this.rotation);
+			  ctx.lineWidth = this.border;
+			  ctx.fillStyle = this.color;
+			  ctx.beginPath();
+			  ctx.moveTo(0, 0);
+			  ctx.lineTo(0, -2);
+			  ctx.lineTo( - (this.length - this.radii - this.arrow_len), -2);
+			  ctx.lineTo( - (this.length - this.radii - this.arrow_len), -4);
+			  ctx.lineTo( - (this.length - this.radii), 0);
+			  ctx.lineTo( - (this.length - this.radii - this.arrow_len), 4);
+			  ctx.lineTo( - (this.length - this.radii - this.arrow_len), 2);
+			  ctx.lineTo(0, 2);
+			  ctx.closePath();
+			  ctx.stroke();
+			  ctx.restore();
+			//
 		}
 		Line.prototype.moveA=function(left,top){
 			this.pointA={'left':left,'top':top};
