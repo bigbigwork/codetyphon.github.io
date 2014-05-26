@@ -1,0 +1,134 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>在线图像处理</title>
+		<style>
+			label{
+				font-size:14px;
+				width:80px;
+				block;
+				float:left;
+				clear:left;
+			}
+			#body{
+				text-align:center;
+			}
+			#box{
+				width:960px;
+				margin:0 auto;
+			}
+			#topbar{
+				width:100%;
+				height:60px;
+				float:left;
+				clear:left;
+				background:#ccc;
+			}
+			#tools_cp{
+				width:100px;
+				height:520px;
+				float:left;
+				clear:left;
+				background:#555;
+			}
+			#canvasBox{
+				width:660px;
+				height:520px;
+				float:left;
+				clear:none;
+				background:#fff;
+				position:relative;
+			}
+			#myCanvas{
+
+				float:left;
+				clear:none;
+				background:#fff;
+				position:absolute;
+				top:0;
+				left:0;
+			}
+			#pcp{
+				width:200px;
+				height:520px;
+				float:left;
+				clear:none;
+				background:#555;
+			}
+			#footer{
+				width:100%;
+				height:30px;
+				line-height:30px;
+				background:#ccc;
+				float:left;
+				clear:left;
+				text-align:center;
+				font-size:14px;
+			}
+			#help{
+				width:300px;
+				height:auto;
+				padding:20px;
+				display:none;
+				position:absolute;
+				top:100px;
+				left:300px;
+				background:#ccc;
+			}
+			#setTitleCP{
+				width:200px;
+				height:60;
+				padding:20px;
+				display:none;
+				position:absolute;
+				top:100px;
+				left:300px;
+				background:#ccc;
+				border-radius:15px;
+				-moz-opacity:0.9;
+				opacity:0.9;
+			}
+			#obj_1,#obj_2{
+				width:70px;
+				height:35px;
+				text-align:center;
+				line-height:35px;
+				border:solid 2px #ccc;
+				margin:10px;
+				cursor:pointer;
+			}
+		</style>
+		<script src="codetyphon.js"></script>
+		<script src="js/pic.js"></script>
+		<script src="js/txt.js"></script>
+		<script src="js/ev.js"></script>
+		<script src="js/init.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<div id="topbar">
+				<button onclick="savetoimage();">导出</button>
+				<button onclick="clearAll();">清除全部</button>
+				<button onclick="help();">帮助</button>
+			</div>
+			<div id="tools_cp">
+				<div id="obj_1">图片</div>
+				<div id="obj_2">文字</div>
+			</div>
+			<div id="canvasBox"><canvas id="myCanvas" ondrop="drop(event)" ondragover="allowDrop(event)">your browser does not support the canvas tag</canvas></div>
+			<div id="pcp">
+				<div id="layers">123</div>
+			</div>
+			<div id="footer">底部信息</div>
+			<div id="help">
+				<p>拖拽左侧工具栏到画布，生成相应的图形。</p>
+				<p>鼠标位于图形上，鼠标呈现拖拽状态时，可拖拽图形，图形移动。</p>
+				<p>鼠标位于图形上的节点，拖拽节点，图形拉伸。</p>
+				<p>鼠标位于图形上，单击一次，按delete键删除图形。</p>
+				<p>鼠标位于图形上，双击，出现编辑框，输入文字，用来更改图形的文字。</p>
+				<p><button onclick='$("help").hide();'>关闭帮助</button></p>
+			</div>
+			<div id="setTitleCP"><input type="text" id="title" /><button id="btnTitle">确定</button></div>
+		</div>
+	</body>
+</html>
