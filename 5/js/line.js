@@ -29,8 +29,8 @@
 			//ctx.stroke();
 			//
 			//
-			 var dy = this.pointA.top - this.pointD.top;
-			    var dx = this.pointA.left - this.pointD.left;
+			 var dy = this.pointA.left - this.pointD.left;
+			    var dx = this.pointA.top - this.pointD.top;
 			    this.rotation = Math.atan2(dy, dx);
 			    if (dy == 0) this.length = Math.abs(dx);
 			    else if (dx == 0) this.length = Math.abs(dy);
