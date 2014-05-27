@@ -1,8 +1,7 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8" />
 <meta http-equiv="Content-Language" content="zh-cn" />
 <meta name="robots" content="all" />
 <meta name="author" content="www.codetyphon.com" />
@@ -136,24 +135,48 @@ body{
 </head>
 <body>
 <div id="wrapper">
-  <div id="header">
+  <header id="header">
 			<h1>codetyphon</h1>
 			<p>极简|敏捷|轻</p>
-			<ul class="menu">
-				<li><a href="index.html">首页</a></li>
-				<li><a href="https://github.com/codetyphon/codetyphon/blob/master/codetyphon.1.0.js">下载</a></li>
-				<li><a href="codetyphon.apk">安卓应用</a></li>
-				<li><a href="codetyphon.ipa">IOS应用</a></li>
-				<li><a href="/ufo">UFO游戏</a></li>
-				<li><a target="_blank" href="2048.html">2048</a></li>
-				<li><a href="https://build.phonegap.com/apps/926809/install">3秒一题</a></li>
-			</ul>
+			<nav>
+				<ul class="menu">
+					<li><a href="index.html">首页</a></li>
+					<li><a href="https://github.com/codetyphon/codetyphon/blob/master/codetyphon.1.0.js">下载</a></li>
+					<li><a href="codetyphon.apk">安卓应用</a></li>
+					<li><a href="codetyphon.ipa">IOS应用</a></li>
+					<li><a href="/ufo">UFO游戏</a></li>
+					<li><a target="_blank" href="2048.html">2048</a></li>
+					<li><a href="https://build.phonegap.com/apps/926809/install">3秒一题</a></li>
+				</ul>
+			</nav>
     		<img id="beta" alt="beta" src="http://learnyouahaskell-zh-tw.csie.org/img/beta.png">
-		</div>
+ </header>
+ 	 <article>
+		 <p>codetyphon 一个简化版的jquery.因为ajax出于安全考虑不跨域，因此codetyphon用一个不标准的url构造来实现json跨域。</p>
+ 	</article>
+ 	<article>
+		 <p>function js2css(){
+      $.isMobElse(function(){
+      	$("css").href("css/mobile.css");
+      },function(){
+		var sw=screen.width;
+		var bw=document.body.clientWidth;    
+		if(bw<800){
+          $("css").href("css/600.css");
+		}else if(bw>960&&bw<1200){
+          $("css").href("css/960.css");
+		}else if(bw>1200){
+          $("css").href("css/1200.css");
+		}
+      });
+	}
+	window.onload=js2css;
+	window.onresize = js2css;</p>
+ 	</article>
 	<div id="about">
 		www.codetyphon.com<br />github.com/codetyphon<br />twitter.com/codetyphon<br />微信号:codetyphon</p>	
 	</div>
-	<div id="footer"></div>
+	<footer id="footer"></footer>
 </div>
 </body>
 </html>
