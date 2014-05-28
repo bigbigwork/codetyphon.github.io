@@ -308,7 +308,7 @@ function on_mouse_move(){
 			default:
 					clearCanvas();
 					for(i=0;i<objs.length;i++){
-						if(objs[i].type!='Line'){
+						//if(objs[i].type!='Line'){
 							objs[i].update();
 							if(ctx.isPointInPath(p.x,p.y)){
 								on_obj=objs[i];
@@ -320,7 +320,7 @@ function on_mouse_move(){
 								on_obj=null;
 								gotowhere="out";
 							}
-						}
+						//}
 					}
 					clearCanvas();
 					update();
