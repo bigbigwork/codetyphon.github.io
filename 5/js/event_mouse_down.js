@@ -14,6 +14,8 @@ function on_mouse_down(){
 			$('top').val(select_obj.top);
 			$('width').val(select_obj.width);
 			$('height').val(select_obj.height);
+		}else{
+			select_obj.select();
 		}
 	}
 	if(gotowhere=="out"){
