@@ -149,7 +149,7 @@
 			  ctx.translate(this.pointA.left,this.pointA.top);
 			  ctx.rotate(this.rotation);
 			  ctx.lineWidth = this.border;
-			  ctx.fillStyle = "red";
+			  
 			  ctx.beginPath();
 			  ctx.moveTo(0, 0);
 			  ctx.lineTo(0, -2);
@@ -160,6 +160,7 @@
 			  ctx.lineTo( - (this.length - this.radii - this.arrow_len), 2);
 			  ctx.lineTo(0, 2);
 			  ctx.closePath();
+			  ctx.strokeStyle="red";
 			  ctx.stroke();
 			  ctx.restore();
 		}
