@@ -138,20 +138,30 @@
 			this.selectD();
 		}
 		Line.prototype.select=function(){
-			ctx.lineWidth = this.border;
-			ctx.beginPath();
-			ctx.moveTo(this.pointA.left,this.pointA.top);
-			ctx.lineTo(this.pointB.left,this.pointB.top);
-			ctx.lineTo(this.pointC.left,this.pointC.top);
-			ctx.lineTo(this.pointD.left,this.pointD.top);			
-			ctx.strokeStyle="red";
-			ctx.stroke();
-			//   select
-			this.selectA();
-			this.selectB();
-			this.selectC();
-			this.selectD();
+			 var dy = this.pointA.top - this.pointD.top;
+			    var dx = this.pointA.left - this.pointD.left;
+			    this.rotation = Math.atan2(dy, dx);
+			    if (dy == 0) this.length = Math.abs(dx);
+			    else if (dx == 0) this.length = Math.abs(dy);
+			    else this.length = Math.sqrt(dx * dx + dy * dy);
 			//
+			  ctx.save();
+			  ctx.translate(this.pointA.left,this.pointA.top);
+			  ctx.rotate(this.rotation);
+			  ctx.lineWidth = this.border;
+			  ctx.fillStyle = "red";
+			  ctx.beginPath();
+			  ctx.moveTo(0, 0);
+			  ctx.lineTo(0, -2);
+			  ctx.lineTo( - (this.length - this.radii - this.arrow_len), -2);
+			  ctx.lineTo( - (this.length - this.radii - this.arrow_len), -4);
+			  ctx.lineTo( - (this.length - this.radii), 0);
+			  ctx.lineTo( - (this.length - this.radii - this.arrow_len), 4);
+			  ctx.lineTo( - (this.length - this.radii - this.arrow_len), 2);
+			  ctx.lineTo(0, 2);
+			  ctx.closePath();
+			  ctx.stroke();
+			  ctx.restore();
 		}
 		Line.prototype.prinText=function(){
 			
