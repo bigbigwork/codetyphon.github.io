@@ -335,16 +335,16 @@
 						if(objs[i].type=='Line'){
 							//
 							for(ii=0;ii<objs.length;ii++){
-								if(objs[ii].pu==objs[i]){
+								if(objs[ii].puline==objs[i]){
 									objs[ii].pu=null;
 									objs[ii].puline=null;
-								}if(objs[ii].pd==objs[i]){
+								}if(objs[ii].pdline==objs[i]){
 									objs[ii].pd=null;
 									objs[ii].pdline=null;
-								}if(objs[ii].pl==objs[i]){
+								}if(objs[ii].plline==objs[i]){
 									objs[ii].pl=null;
 									objs[ii].plline=null;
-								}if(objs[ii].pr==objs[i]){
+								}if(objs[ii].prline==objs[i]){
 									objs[ii].pr=null;
 									objs[ii].prline=null;
 								}
