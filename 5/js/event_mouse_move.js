@@ -375,6 +375,9 @@ function on_mouse_move(){
 						//
 						select_obj.select();
 						select_obj.prinText();	
+					}else{
+						//line
+						select_obj.select();
 					}
 		}
 	default:
