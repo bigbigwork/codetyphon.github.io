@@ -331,6 +331,26 @@
 			console.log(select_obj);
 				for(i=0;i<objs.length;i++){
 					if(objs[i].id==select_obj.id){
+						//tools or line?
+						if(objs[i].type=='Line'){
+							//
+							for(ii=0;ii<objs.length;ii++){
+								if(objs[ii].pu==objs[i]){
+									objs[ii].pu=null;
+									objs[ii].puline=null;
+								}if(objs[ii].pd==objs[i]){
+									objs[ii].pd=null;
+									objs[ii].pdline=null;
+								}if(objs[ii].pl==objs[i]){
+									objs[ii].pl=null;
+									objs[ii].plline=null;
+								}if(objs[ii].pr==objs[i]){
+									objs[ii].pr=null;
+									objs[ii].prline=null;
+								}
+							}
+							//
+						}
 						objs.splice(i,1);
 						console.log(select_obj);
 						break;
