@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>demo</title>
+		<title>html5 在线流程图</title>
 		<style>
 			label{
 				font-size:14px;
@@ -104,9 +104,54 @@
 				height:35px;
 				text-align:center;
 				line-height:35px;
-				border:solid 2px #ccc;
-				margin:10px;
+				border:none;
+				margin:20px 10px 0px 15px;
 				cursor:pointer;
+			}
+			#topbar button{
+				cursor:pointer;
+				color:#fff;
+				float:left;clear:none;
+				border:none;
+				margin:10px 0px 0px 10px;
+				width:90px;
+				height:40px;
+				line-height:40px;
+				display:block;
+				text-align:center;
+				background: linear-gradient(to bottom, #0088cc, #0044cc);
+				-webkit-border-radius: 6px;
+				-moz-border-radius: 6px;
+				border-radius: 6px;
+				-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
+				-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
+				box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
+				-webkit-transition: none;
+				-moz-transition: none;
+				transition: none;
+				font-size:18px;
+			}#topbar button:hover{
+				cursor:pointer;
+				color:#fff;
+				float:left;clear:none;
+				border:none;
+				margin:10px 0px 0px 10px;
+				width:90px;
+				height:40px;
+				line-height:40px;
+				display:block;
+				text-align:center;
+				background: linear-gradient(to bottom, #0022cc, #0044cc);
+				-webkit-border-radius: 6px;
+				-moz-border-radius: 6px;
+				border-radius: 6px;
+				-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
+				-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
+				box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
+				-webkit-transition: none;
+				-moz-transition: none;
+				transition: none;
+				font-size:18px;
 			}
 		</style>
 		<script src="js/codetyphon.js"></script>
@@ -137,11 +182,34 @@
 				<button id="showHelp">帮助</button>
 			</div>
 			<div id="tools_cp">
-				<div id="obj_1">obj_1</div>
-				<div id="obj_2">obj_2</div>
-				<div id="obj_3">obj_3</div>
-				<div id="obj_4">obj_4</div>
-				
+				<div id="obj_1">
+				<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="190">
+					<polygon points="0 0,0 35,70 35,70 0"
+					style="fill:#fff;
+					stroke:#f00;stroke-width:2"/>
+				</svg>
+				</div>
+				<div id="obj_2">
+				<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="190">
+					<polygon points="35 0,0 17.5,35 35,70 17.5"
+					style="fill:#fff;
+					stroke:#f00;stroke-width:2"/>
+				</svg>
+				</div>
+				<div id="obj_3">
+				<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="190">
+					<polygon points="17.5 0,0 35,52.5 35,70 0"
+					style="fill:#fff;
+					stroke:#f00;stroke-width:2"/>
+				</svg>
+				</div>
+				<div id="obj_4">
+				<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="190">
+					<polygon points="35 0,0 35,70 35"
+					style="fill:#fff;
+					stroke:#f00;stroke-width:2"/>
+				</svg>
+				</div>
 			</div>
 			<div id="canvasBox"><canvas id="myCanvas" ondrop="drop(event)" ondragover="allowDrop(event)">your browser does not support the canvas tag</canvas></div>
 			<div id="pcp">
