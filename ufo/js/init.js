@@ -92,3 +92,42 @@ function getKeyCode(e) {
 	}
 }
 document.onkeypress=getKeyCode;
+
+window.addEventListener('touchstart', function (e) {
+        var touchobj = e.changedTouches[0] // reference first touch point (ie: first finger)
+        startx = parseInt(touchobj.clientX) // get x position of touch point relative to left edge of browser
+        starty = parseInt(touchobj.clientY) // get x position of touch point relative to left edge of browser
+        //statusdiv.innerHTML = 'Status: touchstart<br /> ClientX: ' + startx + 'px'
+        e.preventDefault()
+    }, false);
+
+    window.addEventListener('touchmove', function (e) {
+        var touchobj = e.changedTouches[0] // reference first touch point for this event
+        
+        //gameCtrl.player.x+=distX;
+        //gameCtrl.player.y+=distY;
+        //statusdiv.innerHTML = 'Status: touchmove<br /> Horizontal distance traveled: ' + dist + 'px'
+        e.preventDefault()
+    }, false);
+
+    window.addEventListener('touchend', function (e) {
+        var touchobj = e.changedTouches[0] // reference first touch point for this event
+        //statusdiv.innerHTML = 'Status: touchend<br /> Resting x coordinate: ' + touchobj.clientX + 'px'
+        var distX = parseInt(touchobj.clientX) - startx;
+        var distY = parseInt(touchobj.clientY) - starty;
+        var tmp=0;
+        if (distX > document.body.scrollWidth/3) {
+           tom.toRight();//w
+        }
+        if (distX < -document.body.scrollWidth/3) {
+           tom.toLeft();
+        }
+        if (distY > document.body.scrollWidth/3) {
+           tom.toDown();
+        }
+        if (distY < -document.body.scrollWidth/3) {
+           tom.toUp();//w
+        }
+        tom.fire();//fire
+        e.preventDefault()
+    }, false);
