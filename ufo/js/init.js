@@ -57,6 +57,7 @@ window.onload = function() {
 						all_images_load_finish++;
 						ctx.fillText(all_images_load_finish,30,30);
 						game.start();
+						console.log("game start");
 					} 
 					imageFire.src = "images/rocket.png";
 					//
