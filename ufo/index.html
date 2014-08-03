@@ -14,6 +14,16 @@
 		background:url(images/bg.jpg);
 		background-size:cover;
 	}
+	#pop_game_over{
+		position:fixed;
+		top:20px;
+		left:20px;
+		right:20px;
+		bottom:20px;
+		background:#f00;
+		display:none;
+	
+	}
 </style>	
 </head>
 <body>
@@ -21,7 +31,10 @@
 <div id="v">0</div><button onclick="game.pause();">pause</button><button onclick="game.play();">play</button>
 </div>
 <canvas id="myCanvas">your browser does not support the canvas tag </canvas>
-
+<div id="pop_game_over">
+	<h2>Game over</h2>
+	<button>try again</button>
+</div>
 <script type="text/javascript" src="js/game.js"></script>
 <script type="text/javascript" src="js/fire.js"></script>
 <script type="text/javascript" src="js/fuck.js"></script>
