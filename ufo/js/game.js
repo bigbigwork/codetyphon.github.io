@@ -31,9 +31,10 @@ Game.prototype.setImageMe=function(imageMe){
 }
 Game.prototype.start=function(){
 	//ctx.globalCompositeOperation="xor";
-	animate(function(){
+	/*animate(function(){
 		rendering();
-	});
+	});*/
+	setTimeout(rendering, 1000 / 24);
 }
 Game.prototype.gameover=function(){
 	this.state='gameover';
