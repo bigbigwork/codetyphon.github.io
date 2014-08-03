@@ -98,7 +98,7 @@ function getKeyCode(e) {
 }
 document.onkeypress=getKeyCode;
 
-window.addEventListener('touchstart', function (e) {
+document.getElementById("myCanvas").addEventListener('touchstart', function (e) {
         var touchobj = e.changedTouches[0] // reference first touch point (ie: first finger)
         startx = parseInt(touchobj.clientX) // get x position of touch point relative to left edge of browser
         starty = parseInt(touchobj.clientY) // get x position of touch point relative to left edge of browser
@@ -106,7 +106,7 @@ window.addEventListener('touchstart', function (e) {
         e.preventDefault()
     }, false);
 
-    window.addEventListener('touchmove', function (e) {
+    document.getElementById("myCanvas").addEventListener('touchmove', function (e) {
         var touchobj = e.changedTouches[0] // reference first touch point for this event
         
         //gameCtrl.player.x+=distX;
@@ -131,7 +131,7 @@ window.addEventListener('touchstart', function (e) {
         e.preventDefault()
     }, false);
 
-    window.addEventListener('touchend', function (e) {
+    document.getElementById("myCanvas").addEventListener('touchend', function (e) {
         var touchobj = e.changedTouches[0] // reference first touch point for this event
         //statusdiv.innerHTML = 'Status: touchend<br /> Resting x coordinate: ' + touchobj.clientX + 'px'
 	tom.fire();//fire
