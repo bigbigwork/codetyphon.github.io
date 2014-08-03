@@ -13,8 +13,8 @@ Tom.prototype.toLeft=function(){
 }
 Tom.prototype.toRight=function(){
 	this.x+=10;
-	if(this.x+this.width>800){
-		this.x=(800-this.width);
+	if(this.x+this.width>canvas.width){
+		this.x=(canvas.width-this.width);
 	}
 }
 Tom.prototype.toUp=function(){
@@ -25,8 +25,8 @@ Tom.prototype.toUp=function(){
 }
 Tom.prototype.toDown=function(){
 	this.y+=10;
-	if(this.y+this.height>500){
-		this.y=(500-this.height);
+	if(this.y+this.height>canvas.height){
+		this.y=(canvas.height-this.height);
 	}
 }
 Tom.prototype.fire=function(){
