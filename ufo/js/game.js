@@ -34,7 +34,7 @@ Game.prototype.start=function(){
 	/*animate(function(){
 		rendering();
 	});*/
-	setTimeout(rendering, 1000 / 24);
+	setInterval(rendering, 1000 / 24);
 }
 Game.prototype.gameover=function(){
 	this.state='gameover';
