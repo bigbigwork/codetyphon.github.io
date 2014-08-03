@@ -1,9 +1,10 @@
 function Tom(){
-	this.x=300;
-	this.y=470;
+	
 	this.color='';
 	this.width=game.imageMe.width;
 	this.height=game.imageMe.height;
+	this.x=document.body.scrollWidth/2;
+	this.y=document.body.scrollHeight-this.height-10;
 }
 Tom.prototype.toLeft=function(){
 	this.x-=10;
