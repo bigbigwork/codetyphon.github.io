@@ -112,13 +112,7 @@ window.addEventListener('touchstart', function (e) {
         //gameCtrl.player.x+=distX;
         //gameCtrl.player.y+=distY;
         //statusdiv.innerHTML = 'Status: touchmove<br /> Horizontal distance traveled: ' + dist + 'px'
-        e.preventDefault()
-    }, false);
-
-    window.addEventListener('touchend', function (e) {
-        var touchobj = e.changedTouches[0] // reference first touch point for this event
-        //statusdiv.innerHTML = 'Status: touchend<br /> Resting x coordinate: ' + touchobj.clientX + 'px'
-        var distX = parseInt(touchobj.clientX) - startx;
+                var distX = parseInt(touchobj.clientX) - startx;
         var distY = parseInt(touchobj.clientY) - starty;
         var tmp=0;
         if (distX > document.body.scrollWidth/10) {
@@ -134,5 +128,12 @@ window.addEventListener('touchstart', function (e) {
            tom.toUp();//w
         }
         tom.fire();//fire
+        e.preventDefault()
+    }, false);
+
+    window.addEventListener('touchend', function (e) {
+        var touchobj = e.changedTouches[0] // reference first touch point for this event
+        //statusdiv.innerHTML = 'Status: touchend<br /> Resting x coordinate: ' + touchobj.clientX + 'px'
+
         e.preventDefault()
     }, false);
