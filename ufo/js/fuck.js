@@ -1,5 +1,5 @@
 function Fuck(){
-	this.x=Math.floor(Math.random() * (800));
+	this.x=Math.floor(Math.random() * (document.body.scrollWidth));
 	this.y=20;
 	this.live=1;
 	this.speed=1+Math.floor(Math.random() * (2));
@@ -36,7 +36,7 @@ Fuck.prototype.show=function(){
 		}
 		this.time+=0.01;
 		this.y+=this.time*1.98
-		if(this.y>500){
+		if(this.y>document.body.scrollHeight){
 			
 			this.live--;
 		}
