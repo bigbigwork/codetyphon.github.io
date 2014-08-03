@@ -16,14 +16,23 @@
 	}
 	#pop_game_over{
 		position:fixed;
-		top:20%;
+		top:30%;
 		left:20%;
 		right:20%;
-		bottom:20%;
+		bottom:30%;
 		background:rgba(200,200,50,0.5);
 		display:none;
+		text-align:center;
 	
 	}
+		#pop_game_over h2{
+			color:#f00;
+			width:60%;
+		}
+			#pop_game_over button{
+				width:60%;
+				padding:10px;
+			}
 </style>	
 </head>
 <body>
@@ -33,7 +42,7 @@
 <canvas id="myCanvas">your browser does not support the canvas tag </canvas>
 <div id="pop_game_over">
 	<h2>Game over</h2>
-	<button>try again</button>
+	<button onclick="window.location.reload();">try again</button>
 </div>
 <script type="text/javascript" src="js/game.js"></script>
 <script type="text/javascript" src="js/fire.js"></script>
