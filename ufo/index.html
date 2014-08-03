@@ -8,11 +8,20 @@
 <meta content="telephone=no" name="format-detection"/>
 <meta content="email=no" name="format-detection"/>
 <title>UFO 乌鸦出品</title>
-	
+<style>
+	#myCanvas{
+		position:fixed;
+		top:0px;
+		left:0px;
+		right:0px;
+		bottom:0px;
+
+	}
+</style>	
 </head>
 <body>
 
-<div id="v">0</div> <button onclick="game.pause();">pause</button><button onclick="game.play();">play</button>
+<div id="v">0</div><button onclick="game.pause();">pause</button><button onclick="game.play();">play</button>
 <canvas id="myCanvas" style="border:solid #ccc 1px;background:url(images/bg.jpg);">your browser does not support the canvas tag </canvas>
 
 <script type="text/javascript" src="js/game.js"></script>
