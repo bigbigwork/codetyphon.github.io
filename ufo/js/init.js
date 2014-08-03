@@ -16,6 +16,9 @@ window.onload = function() {
 	
 	canvas=document.getElementById('myCanvas');
 	canvas.top=0;
+	canvas.left=0;
+	canvas.right=0;
+	canvas.buttom=0;
 	ctx=canvas.getContext('2d');
 	ctx.globalAlpha=1;
 	//ctx.globalCompositeOperation='xor';
