@@ -121,16 +121,16 @@ window.addEventListener('touchstart', function (e) {
         var distX = parseInt(touchobj.clientX) - startx;
         var distY = parseInt(touchobj.clientY) - starty;
         var tmp=0;
-        if (distX > document.body.scrollWidth/3) {
+        if (distX > document.body.scrollWidth/10) {
            tom.toRight();//w
         }
-        if (distX < -document.body.scrollWidth/3) {
+        if (distX < -document.body.scrollWidth/10) {
            tom.toLeft();
         }
-        if (distY > document.body.scrollWidth/3) {
+        if (distY > document.body.scrollWidth/10) {
            tom.toDown();
         }
-        if (distY < -document.body.scrollWidth/3) {
+        if (distY < -document.body.scrollWidth/10) {
            tom.toUp();//w
         }
         tom.fire();//fire
