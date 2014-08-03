@@ -115,25 +115,25 @@ window.addEventListener('touchstart', function (e) {
                 var distX = parseInt(touchobj.clientX) - startx;
         var distY = parseInt(touchobj.clientY) - starty;
         var tmp=0;
-        if (distX > document.body.scrollWidth/10) {
+        if (distX > document.body.scrollWidth/5) {
            tom.toRight();//w
         }
-        if (distX < -document.body.scrollWidth/10) {
+        if (distX < -document.body.scrollWidth/5) {
            tom.toLeft();
         }
-        if (distY > document.body.scrollWidth/10) {
+        if (distY > document.body.scrollWidth/5) {
            tom.toDown();
         }
-        if (distY < -document.body.scrollWidth/10) {
+        if (distY < -document.body.scrollWidth/5) {
            tom.toUp();//w
         }
-        tom.fire();//fire
+        
         e.preventDefault()
     }, false);
 
     window.addEventListener('touchend', function (e) {
         var touchobj = e.changedTouches[0] // reference first touch point for this event
         //statusdiv.innerHTML = 'Status: touchend<br /> Resting x coordinate: ' + touchobj.clientX + 'px'
-
+	tom.fire();//fire
         e.preventDefault()
     }, false);
