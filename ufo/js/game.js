@@ -6,8 +6,8 @@ function Game(){
 	
 	this.v=0;
 	this.state='playing';
-	this.x=150;
-	this.y=100;
+	this.x=10;
+	this.y=canvas.height/2;
 }
 Game.prototype.showv=function(){
 	ctx.font="30px Georgia";
