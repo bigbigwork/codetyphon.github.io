@@ -36,7 +36,8 @@ function rendering(){
 							if((ff_bj-ff_jianju<0)&&(xf_bj-xf_jianju<0)){
 								fires[x].live--;
 								fucks[i].live--;
-								game.v+= (20-fucks[i].speed);
+								//game.v+= (20-fucks[i].speed);
+								game.v++;
 								x=fires.length
 								break;
 							}
