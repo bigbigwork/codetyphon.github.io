@@ -10,7 +10,8 @@ function Fire(x,y){
 Fire.prototype.show=function(){
 	if(this.live==1){
 		this.time+=0.01;
-		this.y-=(4-this.time*1.98);
+		//this.y-=(4-this.time*1.98);
+		this.y-=3;
 		if(this.y<0){
 			this.live--;
 		}else{
