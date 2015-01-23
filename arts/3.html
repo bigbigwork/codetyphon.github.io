@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+        <meta content="yes" name="apple-mobile-web-app-capable"/>
+        <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+        <meta content="telephone=no" name="format-detection"/>
+        <meta content="email=no" name="format-detection"/>
+    <title>鸡兔同笼</title>
+    <meta name="description" content="鸡兔同笼">
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico">
+    <link rel="stylesheet" href="/blog.css">
+  </head>
+  <body>
+    
+
+    <h1><a href="/">haskellchina</a></h1>
+
+    <p class="nav">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+    </p> 
+    <div class="item">
+      <h2>鸡兔同笼</h2>
+  <p>鸡兔同笼是中国古代的数学名题之一。大约在1500年前，《孙子算经》中就记载了这个有趣的问题。书中是这样叙述的：“今有雉兔同笼，上有三十五头，下有九十四足，问雉兔各几何？”这四句话的意思是：有若干只鸡兔同在一个笼子里，从上面数，有35个头,从下面数，有94只脚。问笼中各有几只鸡和兔？</p>
+  <p>
+  [(a,b)|a<-[0..100],b<-[0..100],a+b==35,a*2+b*4==94]
+  </p>
+      <p class="pub">2015-01-22</p>
+      </div>
+
+    <div class="footer">
+      <p class="footercopyright">© 2000-2015 <a href="/">www.haskellchina.com</a>
+      </p> 
+   </div> 
+</body></html>
