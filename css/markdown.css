@@ -311,7 +311,7 @@ body {
     position: absolute;
     width: 45%;
     top: 50px;
-    bottom: 50px;
+    bottom: 30px;
     left: 0;
     padding: 0;
     display: block;
@@ -321,7 +321,7 @@ body {
     position: absolute;
     width: 45%;
     top: 50px;
-    bottom: 50px;
+    bottom: 30px;
     right: 0;
     padding: 0;
     display: block;
