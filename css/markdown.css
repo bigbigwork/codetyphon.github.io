@@ -260,21 +260,31 @@ button::-moz-focus-inner {
 		margin: 0;
 		padding: 0;
 	}
+	body{
+	    position: fixed;
+    		width: 100%;
+    		top: 50px;
+    		bottom: 50px;
+	}
 	#markDownSource{
+		position: absolute;
 		width: 45%;
 		height: 100%;
-		margin: 0;
+		top:0;
+		bottom:0;
+		left:0;
 		padding: 0;
 		display: block;
-		float: left;
 	}
 	#live{
+		position: absolute;
 		width: 45%;
 		height: 100%;
-		margin: 0;
+		top:0;
+		bottom:0;
+		right:0;
 		padding: 0;
-		display:block;
-		float: right;
+		display: block;
 	}
 textarea {
     border: 5px solid #eee; padding: 5px; width: 100%;
