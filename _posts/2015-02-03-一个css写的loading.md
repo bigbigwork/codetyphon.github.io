@@ -1,0 +1,502 @@
+---
+layout: default
+title: 一个css写的loading
+---
+<h2>{{ page.title }}</h2>
+<style>
+#page_loading_spinner{
+	margin-top: 100px;
+}
+@-webkit-keyframes opacity-60-25-0-13 {
+	0% {
+	    opacity: 0.25;
+	}
+	0.01% {
+	    opacity: 0.25;
+	}
+	0.02% {
+	    opacity: 1;
+	}
+	60.01% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.25;
+	}
+}
+@-webkit-keyframes opacity-60-25-1-13 {
+	0% {
+	    opacity: 0.25;
+	}
+	7.70231% {
+	    opacity: 0.25;
+	}
+	7.71231% {
+	    opacity: 1;
+	}
+	67.7023% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.25;
+	}
+}
+@-webkit-keyframes opacity-60-25-2-13 {
+	0% {
+	    opacity: 0.25;
+	}
+	15.3946% {
+	    opacity: 0.25;
+	}
+	15.4046% {
+	    opacity: 1;
+	}
+	75.3946% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.25;
+	}
+}
+@-webkit-keyframes opacity-60-25-3-13 {
+	0% {
+	    opacity: 0.25;
+	}
+	23.0869% {
+	    opacity: 0.25;
+	}
+	23.0969% {
+	    opacity: 1;
+	}
+	83.0869% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.25;
+	}
+}
+@-webkit-keyframes opacity-60-25-4-13 {
+	0% {
+	    opacity: 0.25;
+	}
+	30.7792% {
+	    opacity: 0.25;
+	}
+	30.7892% {
+	    opacity: 1;
+	}
+	90.7792% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.25;
+	}
+}
+@-webkit-keyframes opacity-60-25-5-13 {
+	0% {
+	    opacity: 0.25;
+	}
+	38.4715% {
+	    opacity: 0.25;
+	}
+	38.4815% {
+	    opacity: 1;
+	}
+	98.4715% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.25;
+	}
+}
+@-webkit-keyframes opacity-60-25-6-13 {
+	0% {
+	    opacity: 0.327048;
+	}
+	46.1638% {
+	    opacity: 0.25;
+	}
+	46.1738% {
+	    opacity: 1;
+	}
+	6.16385% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.327048;
+	}
+}
+@-webkit-keyframes opacity-60-25-7-13 {
+	0% {
+	    opacity: 0.423202;
+	}
+	53.8562% {
+	    opacity: 0.25;
+	}
+	53.8662% {
+	    opacity: 1;
+	}
+	13.8562% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.423202;
+	}
+}
+@-webkit-keyframes opacity-60-25-8-13 {
+	0% {
+	    opacity: 0.519356;
+	}
+	61.5485% {
+	    opacity: 0.25;
+	}
+	61.5585% {
+	    opacity: 1;
+	}
+	21.5485% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.519356;
+	}
+}
+@-webkit-keyframes opacity-60-25-9-13 {
+	0% {
+	    opacity: 0.61551;
+	}
+	69.2408% {
+	    opacity: 0.25;
+	}
+	69.2508% {
+	    opacity: 1;
+	}
+	29.2408% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.61551;
+	}
+}
+@-webkit-keyframes opacity-60-25-10-13 {
+	0% {
+	    opacity: 0.711663;
+	}
+	76.9331% {
+	    opacity: 0.25;
+	}
+	76.9431% {
+	    opacity: 1;
+	}
+	36.9331% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.711663;
+	}
+}
+@-webkit-keyframes opacity-60-25-11-13 {
+	0% {
+	    opacity: 0.807817;
+	}
+	84.6254% {
+	    opacity: 0.25;
+	}
+	84.6354% {
+	    opacity: 1;
+	}
+	44.6254% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.807817;
+	}
+}
+@-webkit-keyframes opacity-60-25-12-13 {
+	0% {
+	    opacity: 0.903971;
+	}
+	92.3177% {
+	    opacity: 0.25;
+	}
+	92.3277% {
+	    opacity: 1;
+	}
+	52.3177% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.903971;
+	}
+}
+
+
+
+@keyframes opacity-60-25-0-13 {
+	0% {
+	    opacity: 0.25;
+	}
+	0.01% {
+	    opacity: 0.25;
+	}
+	0.02% {
+	    opacity: 1;
+	}
+	60.01% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.25;
+	}
+}
+@keyframes opacity-60-25-1-13 {
+	0% {
+	    opacity: 0.25;
+	}
+	7.70231% {
+	    opacity: 0.25;
+	}
+	7.71231% {
+	    opacity: 1;
+	}
+	67.7023% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.25;
+	}
+}
+@keyframes opacity-60-25-2-13 {
+	0% {
+	    opacity: 0.25;
+	}
+	15.3946% {
+	    opacity: 0.25;
+	}
+	15.4046% {
+	    opacity: 1;
+	}
+	75.3946% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.25;
+	}
+}
+@keyframes opacity-60-25-3-13 {
+	0% {
+	    opacity: 0.25;
+	}
+	23.0869% {
+	    opacity: 0.25;
+	}
+	23.0969% {
+	    opacity: 1;
+	}
+	83.0869% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.25;
+	}
+}
+@keyframes opacity-60-25-4-13 {
+	0% {
+	    opacity: 0.25;
+	}
+	30.7792% {
+	    opacity: 0.25;
+	}
+	30.7892% {
+	    opacity: 1;
+	}
+	90.7792% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.25;
+	}
+}
+@keyframes opacity-60-25-5-13 {
+	0% {
+	    opacity: 0.25;
+	}
+	38.4715% {
+	    opacity: 0.25;
+	}
+	38.4815% {
+	    opacity: 1;
+	}
+	98.4715% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.25;
+	}
+}
+@keyframes opacity-60-25-6-13 {
+	0% {
+	    opacity: 0.327048;
+	}
+	46.1638% {
+	    opacity: 0.25;
+	}
+	46.1738% {
+	    opacity: 1;
+	}
+	6.16385% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.327048;
+	}
+}
+@keyframes opacity-60-25-7-13 {
+	0% {
+	    opacity: 0.423202;
+	}
+	53.8562% {
+	    opacity: 0.25;
+	}
+	53.8662% {
+	    opacity: 1;
+	}
+	13.8562% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.423202;
+	}
+}
+@keyframes opacity-60-25-8-13 {
+	0% {
+	    opacity: 0.519356;
+	}
+	61.5485% {
+	    opacity: 0.25;
+	}
+	61.5585% {
+	    opacity: 1;
+	}
+	21.5485% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.519356;
+	}
+}
+@keyframes opacity-60-25-9-13 {
+	0% {
+	    opacity: 0.61551;
+	}
+	69.2408% {
+	    opacity: 0.25;
+	}
+	69.2508% {
+	    opacity: 1;
+	}
+	29.2408% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.61551;
+	}
+}
+@keyframes opacity-60-25-10-13 {
+	0% {
+	    opacity: 0.711663;
+	}
+	76.9331% {
+	    opacity: 0.25;
+	}
+	76.9431% {
+	    opacity: 1;
+	}
+	36.9331% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.711663;
+	}
+}
+@keyframes opacity-60-25-11-13 {
+	0% {
+	    opacity: 0.807817;
+	}
+	84.6254% {
+	    opacity: 0.25;
+	}
+	84.6354% {
+	    opacity: 1;
+	}
+	44.6254% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.807817;
+	}
+}
+@keyframes opacity-60-25-12-13 {
+	0% {
+	    opacity: 0.903971;
+	}
+	92.3177% {
+	    opacity: 0.25;
+	}
+	92.3277% {
+	    opacity: 1;
+	}
+	52.3177% {
+	    opacity: 0.25;
+	}
+	100% {
+	    opacity: 0.903971;
+	}
+}
+</style>
+<div id="page_loading_spinner" class="loading_spinner_holder">
+    <div id="pagespinner">
+        <div role="progressbar" style="position: relative; width: 0px; z-index: 2000000000; left: 250px; top: 0px;"
+             class="spinner">
+            <div style="position: absolute; top: -5px; opacity: 0.25; -webkit-animation: 1s linear 0s normal none infinite running opacity-60-25-0-13;animation: 1s linear 0s normal none infinite running opacity-60-25-0-13;">
+                <div style="position: absolute; width: 30px; height: 10px; background: none repeat scroll 0% 0% rgb(0, 0, 0); box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0px; transform: rotate(0deg) translate(30px, 0px); border-radius: 5px;"></div>
+            </div>
+            <div style="position: absolute; top: -5px; opacity: 0.25; -webkit-animation: 1s linear 0s normal none infinite running opacity-60-25-1-13;animation: 1s linear 0s normal none infinite running opacity-60-25-1-13;">
+                <div style="position: absolute; width: 30px; height: 10px; background: none repeat scroll 0% 0% rgb(0, 0, 0); box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0px; transform: rotate(27deg) translate(30px, 0px); border-radius: 5px;"></div>
+            </div>
+            <div style="position: absolute; top: -5px; opacity: 0.25;  -webkit-animation: 1s linear 0s normal none infinite running opacity-60-25-2-13;animation: 1s linear 0s normal none infinite running opacity-60-25-2-13;">
+                <div style="position: absolute; width: 30px; height: 10px; background: none repeat scroll 0% 0% rgb(0, 0, 0); box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0px; transform: rotate(55deg) translate(30px, 0px); border-radius: 5px;"></div>
+            </div>
+            <div style="position: absolute; top: -5px; opacity: 0.25; -webkit-animation: 1s linear 0s normal none infinite running opacity-60-25-3-13;animation: 1s linear 0s normal none infinite running opacity-60-25-3-13;">
+                <div style="position: absolute; width: 30px; height: 10px; background: none repeat scroll 0% 0% rgb(0, 0, 0); box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0px; transform: rotate(83deg) translate(30px, 0px); border-radius: 5px;"></div>
+            </div>
+            <div style="position: absolute; top: -5px; opacity: 0.25; -webkit-animation: 1s linear 0s normal none infinite running opacity-60-25-4-13;animation: 1s linear 0s normal none infinite running opacity-60-25-4-13;">
+                <div style="position: absolute; width: 30px; height: 10px; background: none repeat scroll 0% 0% rgb(0, 0, 0); box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0px; transform: rotate(110deg) translate(30px, 0px); border-radius: 5px;"></div>
+            </div>
+            <div style="position: absolute; top: -5px; opacity: 0.25; -webkit-animation: 1s linear 0s normal none infinite running opacity-60-25-5-13;animation: 1s linear 0s normal none infinite running opacity-60-25-5-13;">
+                <div style="position: absolute; width: 30px; height: 10px; background: none repeat scroll 0% 0% rgb(0, 0, 0); box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0px; transform: rotate(138deg) translate(30px, 0px); border-radius: 5px;"></div>
+            </div>
+            <div style="position: absolute; top: -5px; opacity: 0.25; -webkit-animation: 1s linear 0s normal none infinite running opacity-60-25-6-13;animation: 1s linear 0s normal none infinite running opacity-60-25-6-13;">
+                <div style="position: absolute; width: 30px; height: 10px; background: none repeat scroll 0% 0% rgb(0, 0, 0); box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0px; transform: rotate(166deg) translate(30px, 0px); border-radius: 5px;"></div>
+            </div>
+            <div style="position: absolute; top: -5px; opacity: 0.25; -webkit-animation: 1s linear 0s normal none infinite running opacity-60-25-7-13;animation: 1s linear 0s normal none infinite running opacity-60-25-7-13;">
+                <div style="position: absolute; width: 30px; height: 10px; background: none repeat scroll 0% 0% rgb(0, 0, 0); box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0px; transform: rotate(193deg) translate(30px, 0px); border-radius: 5px;"></div>
+            </div>
+            <div style="position: absolute; top: -5px; opacity: 0.25; -webkit-animation: 1s linear 0s normal none infinite running opacity-60-25-8-13;animation: 1s linear 0s normal none infinite running opacity-60-25-8-13;">
+                <div style="position: absolute; width: 30px; height: 10px; background: none repeat scroll 0% 0% rgb(0, 0, 0); box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0px; transform: rotate(221deg) translate(30px, 0px); border-radius: 5px;"></div>
+            </div>
+            <div style="position: absolute; top: -5px; opacity: 0.25; -webkit-animation: 1s linear 0s normal none infinite running opacity-60-25-9-13;animation: 1s linear 0s normal none infinite running opacity-60-25-9-13;">
+                <div style="position: absolute; width: 30px; height: 10px; background: none repeat scroll 0% 0% rgb(0, 0, 0); box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0px; transform: rotate(249deg) translate(30px, 0px); border-radius: 5px;"></div>
+            </div>
+            <div style="position: absolute; top: -5px; opacity: 0.25; -webkit-animation: 1s linear 0s normal none infinite running opacity-60-25-10-13;animation: 1s linear 0s normal none infinite running opacity-60-25-10-13;">
+                <div style="position: absolute; width: 30px; height: 10px; background: none repeat scroll 0% 0% rgb(0, 0, 0); box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0px; transform: rotate(276deg) translate(30px, 0px); border-radius: 5px;"></div>
+            </div>
+            <div style="position: absolute; top: -5px; opacity: 0.25; -webkit-animation: 1s linear 0s normal none infinite running opacity-60-25-11-13;animation: 1s linear 0s normal none infinite running opacity-60-25-11-13;">
+                <div style="position: absolute; width: 30px; height: 10px; background: none repeat scroll 0% 0% rgb(0, 0, 0); box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0px; transform: rotate(304deg) translate(30px, 0px); border-radius: 5px;"></div>
+            </div>
+            <div style="position: absolute; top: -5px; opacity: 0.25; -webkit-animation: 1s linear 0s normal none infinite running opacity-60-25-12-13;animation: 1s linear 0s normal none infinite running opacity-60-25-12-13;">
+                <div style="position: absolute; width: 30px; height: 10px; background: none repeat scroll 0% 0% rgb(0, 0, 0); box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1); transform-origin: left center 0px; transform: rotate(332deg) translate(30px, 0px); border-radius: 5px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<p>{{ page.date | date_to_string }}</p>
