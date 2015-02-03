@@ -1,0 +1,175 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:transparent
+}
+
+body{
+	line-height:1;
+	font-family:Verdana,Arial,sans-serif;
+	font-size:13px;
+	text-align:center;
+	height:100%;
+	color:#3c3c3c;
+}
+
+ol,ul{
+	list-style:none;
+}
+
+blockquote,q{
+	quotes:none;
+	text-indent: 0;
+}
+
+blockquote:before,blockquote:after,q:before,q:after{
+	content:'';
+	content:none;
+}
+
+:focus{
+	outline:0;
+}
+
+ins{
+	text-decoration:none
+}
+
+del{
+	text-decoration:line-through
+}
+
+table{
+	border-collapse:collapse;
+	border-spacing:0
+}
+
+figure{
+	margin:0
+}
+
+header,section,article,nav,footer{
+	display:block
+}
+.clearfix:after{
+	clear:both;
+	content:' ';
+	display:block;
+	font-size:0;
+	line-height:0;
+	visibility:hidden;
+	width:0;
+	height:0
+}
+
+* html .clearfix{
+	height:1%;
+	overflow:visible
+}
+
+*+html .clearfix{
+	min-height:1%
+}
+
+
+
+.clearfix:after{
+	clear:both;
+	content:' ';
+	display:block;
+	font-size:0;
+	line-height:0;
+	visibility:hidden;
+	width:0;
+	height:0
+}
+
+* html .clearfix{
+	height:1%;
+	overflow:visible
+}
+
+*+html .clearfix{
+	min-height:1%
+}
+
+iframe{
+	border:0
+}
+
+.clear{
+	clear:both
+}
+
+.fleft{
+	float:left
+}
+
+.fright{
+	float:right
+}
+
+a{
+	color:#0f2d5f;
+	text-decoration:none;
+	outline:0
+}
+
+a:hover{
+	text-decoration:underline
+}
+
+h1,h1 a,h2,h2 a,h3,h3 a,h4,h4 a,h5,h5 a,h6,h6 a{
+	color:#000
+}
+
+p{
+	color:#3c3c3c;
+	margin:0 0 10px
+}
+h1{
+	font:bold 40px/40px Georgia
+}
+
+h2{
+	font:bold 30px/34px Georgia
+}
+
+h3{
+	font:bold 18px/20px Georgia
+}
+
+h4{
+	font:bold 15px/19px Georgia
+}
+
+h5{
+	font:bold 14px/16px Georgia
+}
+
+h6{
+	font:bold 13px/16px Georgia
+}
+
+h6.slug{
+	font:normal 10px/10px Verdana;
+	text-transform:uppercase;
+	margin:0 0 10px;
+	color:#666;
+	letter-spacing:.1em
+}
+small{
+	font:normal 10px/14px Verdana;
+	color:#6d6d6d
+}
+cite,label{
+	font:normal 11px/14px Verdana
+}
+label{
+	color:#6d6d6d;
+	display:block
+}
