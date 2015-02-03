@@ -310,7 +310,6 @@ body {
 #markDownSource {
     position: absolute;
     width: 45%;
-    height: 100%;
     top: 50px;
     bottom: 0;
     left: 0;
@@ -321,7 +320,6 @@ body {
 #live {
     position: absolute;
     width: 45%;
-    height: 100%;
     top: 50px;
     bottom: 0;
     right: 0;
