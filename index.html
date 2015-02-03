@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, maximum-scale=2.0" />
+    <meta name="news_keywords" content="" />
+    <meta property="author" content="codetyphon" />
+    <meta property="article:published_time" content="2015-02-03" />
+    <meta name="date" content="2015-02-03" />
+    <meta name="twitter:site" content="@codetyphon" />
+    <title>codeTyphon | a editor for makedown</title>
+    <link rel="stylesheet" href="styles/markdown.css"/>
+</head>
+<body>
+<textarea id='markDownSource'></textarea>
+<div id='live' class="markdown-body"></div>
+<script src='js/md.js'></script>
+<script>
+	function md2html(md){
+		var converter = new Showdown.converter();
+		return converter.makeHtml(md);
+	}
+	function mk(){
+		var md=markDownSource.value;
+		var html=md2html(md);
+		live.innerHTML=html;
+	}
+	markDownSource.onkeyup=function(){
+		mk();
+	}
+	window.onload=function(){			
+		
+	}
+</script>
+</body>
+</html>
