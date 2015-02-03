@@ -303,7 +303,7 @@ body {
     position: fixed;
     left: 10px;
     right: 10px;
-    top: 50px;
+    top: 20px;
     bottom: 50px;
 }
 
@@ -311,7 +311,7 @@ body {
     position: absolute;
     width: 45%;
     height: 100%;
-    top: 30;
+    top: 50px;
     bottom: 0;
     left: 0;
     padding: 0;
@@ -322,7 +322,7 @@ body {
     position: absolute;
     width: 45%;
     height: 100%;
-    top: 30;
+    top: 50px;
     bottom: 0;
     right: 0;
     padding: 0;
