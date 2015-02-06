@@ -7,6 +7,23 @@ function en(){
 function de(){
   
 }
+function CODE(LETTRE){
+	if(LETTRE == " "){
+		return " "; 
+	}
+for(tg=0; tg<=26+6; tg++) {
+
+var LT = CARACTERES.charAt(tg)
+
+if(LT == LETTRE){
+
+return MORSE[tg +1]; 
+
+}
+
+}
+return "";
+}
 function enmorse(text) {
   text = text.toUpperCase()
   var MSG = ""
