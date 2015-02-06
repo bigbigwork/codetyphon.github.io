@@ -1,0 +1,33 @@
+<input type="text" id="text"><button onclick="en()">encode</button>
+<input type="text" id="morse"><button onclick="de()">decode</button>
+<script>
+function en(){
+  morse.value=enmorse(text.value);
+}
+function de(){
+  
+}
+function enmorse(text) {
+  text = text.toUpperCase()
+  var MSG = ""
+  var LTR = ""
+  NUM = text.length;
+  for(t = 0; t <= NUM-1; t++){
+    if (text.charAt(t) == '^') {
+	    LTR = text.charAt(++t);
+	    switch (LTR) {
+    		case 'C': case 'c': LTR = "["; break;
+    		case 'G': case 'g': LTR = "@"; break;
+    		case 'H': case 'h': LTR = "*"; break;
+    		case 'J': case 'j': LTR = "]"; break;
+    		case 'S': case 's': LTR = "$"; break;
+    		case 'U': case 'u': LTR = "#"; break;
+    	}
+     } else {
+	    LTR = text.charAt(t)
+      }
+    MSG = MSG + ( CODE(LTR) + " ") ;
+  }
+  return MSG;
+}
+</script>
