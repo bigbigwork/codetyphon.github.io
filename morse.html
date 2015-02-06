@@ -1,6 +1,7 @@
 <input type="text" id="text"><button onclick="en()">encode</button>
 <input type="text" id="morse"><button onclick="de()">decode</button>
 <script>
+var CARACTERES="ABCDEFGHIJKLMNOPQRSTUVWXYZ[@*]$#";
 function en(){
   morse.value=enmorse(text.value);
 }
