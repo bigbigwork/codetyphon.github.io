@@ -1,0 +1,104 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+}
+#wrap{
+    width:100%;
+    height:auto;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+}
+#full{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+#download_page_box{
+    width: 100%;
+    height: auto;
+    background:#abe3f3 url(images/1-bottom.png);
+    background-size:auto 30%;
+    width: 100%;
+    height: 100%;
+    background-repeat: repeat-x;
+    background-position: bottom;
+}
+#xinxian_page_box{
+    width: 100%;
+    height: auto;
+    background: #8ac060;
+}
+#guoyin_page_box{
+    width: 100%;
+    height: auto;
+    background: #fcf5a5;
+}
+#fangbian_page_box{
+    width: 100%;
+    height: auto;
+    background: #ef674d;
+}
+#renxing_page_box{
+    width: 100%;
+    height: auto;
+    background: #8957a1;
+}
+#download_page,#xinxian_page,#guoyin_page,#fangbian_page,#renxing_page{
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+#link_to_download_ios{
+    width: 16.5%;
+    height: 11%;
+    cursor: pointer;
+    position: absolute;
+    top: 49%;
+    left: 58%;
+    /*
+    background: url(images/ios.png);
+    background-size: 100% 100%;
+    */
+}
+#link_to_download_android{
+    width: 16.5%;
+    height: 11%;
+    cursor: pointer;
+    position: absolute;
+    top: 49%;
+    left: 76%;
+    /*
+    background: url(images/android.png);
+    background-size: 100% 100%;
+    */
+}
+#footer{
+    height: 50px;
+    background:#fff;
+    width: 100%;
+    color: #cfcfcf;
+    color:rgba(0,0,0,0.5);
+    font-size: 20px;
+    line-height: 35px;
+    margin: 15px 0px 20px 0px;
+}
+@media all and (max-width: 600px){
+    footer{
+        font-size: 14px;
+        line-height: 25px;
+    }
+}
