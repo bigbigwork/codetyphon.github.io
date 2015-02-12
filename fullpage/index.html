@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1">
+        <meta content="width=device-width,initial-scale=1.0,maximum-scale=10,user-scalable=yes" name="viewport">
+        <!-- 设计图里暂时不考虑移动适配
+        <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
+        -->
+        <meta content="yes" name="apple-mobile-web-app-capable"/>
+        <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+        <meta content="telephone=no" name="format-detection"/>
+        <meta content="email=no" name="format-detection"/>
+        <meta property="author" content="hothuati" />
+        <meta name="twitter:site" content="hothuati" />
+        <title></title>
+        <meta name="description" content="">
+        <link rel="shortcut icon" type="image/ico" href="/favicon.ico">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="wrap" id="wrap">
+            <div id="download_page_box">
+                <div id="download_page">
+                    <img src="images/1.png" onload="resize();" width="100%">
+                    <a target="_blank" href="#ios" title="去苹果应用商店下载" id="link_to_download_ios"><img src="images/ios.png" border="0" width="100%" height="100%"></a>
+                    <a target="_blank" href="#apk" title="点击下载安卓版" id="link_to_download_android"><img src="images/android.png" border="0" width="100%" height="100%"></a>
+                </div>
+            </div>
+            <div id="xinxian_page_box">
+                <div id="xinxian_page">
+                    <img src="images/2.png" onload="resize();" width="100%">
+                </div>
+            </div>
+            <div id="guoyin_page_box">
+                <div id="guoyin_page">
+                    <img src="images/3.png" onload="resize();" width="100%">
+                </div>
+            </div>
+            <div id="fangbian_page_box">
+                <div id="fangbian_page">
+                    <img src="images/4.png" onload="resize();" width="100%">
+                </div>
+            </div>
+            <div id="renxing_page_box">
+                <div id="renxing_page">
+                    <img src="images/5.png" onload="resize();" width="100%">
+                </div>
+            </div>
+
+            <div id="footer">
+
+            </div>
+        </div>
+        <div id="full"></div>
+    </body>
+    <script>
+        /*
+        使用图片加载完毕以后调用resize();而不是onload，这样可以用来延时。
+        */
+        function resize(){
+            document.getElementById("full").style.display="block";
+            var w=document.getElementById("full").clientWidth;
+            var h=document.getElementById("full").clientHeight;
+            //document.getElementById("full").style.display="none";
+
+            var max_w=1366;// 最大寬度
+            var max_h=768;//最大高度
+
+            if(h/max_h*max_w<w){
+                vw=h/max_h*max_w;;
+                vh=h;
+            }else{
+                vw=w;
+                vh=w/max_w*max_h;
+            }
+
+            download_page.style.height=vh+"px";
+            download_page.style.width=vw+"px";
+
+            xinxian_page.style.height=vh+"px";
+            xinxian_page.style.width=vw+"px";
+
+            guoyin_page.style.height=vh+"px";
+            guoyin_page.style.width=vw+"px";
+
+            fangbian_page.style.height=vh+"px";
+            fangbian_page.style.width=vw+"px";
+
+            renxing_page.style.height=vh+"px";
+            renxing_page.style.width=vw+"px";
+            document.getElementById("full").style.display="none";
+        }
+        window.onload=function(){
+            //resize();
+        };
+        window.onresize=resize;
+            var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
+ 
+            if (document.attachEvent) {//if IE (and Opera depending on user setting)
+                document.attachEvent("on"+mousewheelevt, function(e){
+                    m(e);
+                })
+            }else if (document.addEventListener) {//WC3 browsers
+                document.addEventListener(mousewheelevt, function(e){
+                    m(e);
+                }, false)
+            }
+
+            var page_index=0;
+            var max_page=4;//页数
+
+            function m(e){
+                var x=0;
+                var evt=window.event || e ;//equalize event object
+                var delta=evt.detail? evt.detail*(-120) : evt.wheelDelta ;//check for detail first so Opera uses that 
+                console.log(delta);
+                if(delta===-120){
+                    //鼠標滾輪向下滾動，頁面向上滑動
+                    if (page_index<max_page) {
+                        page_index+=1;
+                    };
+                    
+                }
+                if(delta===120){
+                    //鼠標滾輪向上滾動，頁面向下滑動
+                    if(page_index>0){
+                        page_index-=1;
+                    }
+                }
+
+                if(page_index===5){
+                    x=1*vh/5;
+                }
+
+                document.getElementById("wrap").style.top=page_index*vh*-1+x+"px";
+
+            }
+
+    </script>
+</html>
