@@ -422,3 +422,8 @@ a, a:hover, a:visited {
 li span {
     display: none;
 }
+
+.bdfh{
+    display:inline-block;
+    width:0.5em;
+}
