@@ -1,0 +1,43 @@
+---
+layout: post
+title: 移动端logo居中
+---
+
+
+<style>
+html{
+	font-size: 10px;
+}
+.box{
+	width: 20rem;
+	height: 20rem;
+	background-color: #ccc;
+	margin: 1rem auto;
+	position: relative;
+}
+.m{
+	width: 5rem; height: 5rem;
+	line-height: 5rem;
+	text-align: center;
+	background-color: #fff;
+    position: absolute; left: 0; top: 0; right: 0; bottom: 0;
+    margin: auto;
+}
+.z{
+	width: 5rem; height: 5rem;
+	line-height: 5rem;
+	text-align: center;
+    position: absolute; left: 50%; top: 50%;
+    background-color: #fff;
+    transform: translate(-50%, -50%); 
+}
+</style>
+<q>之前我的方法是用相对定位，这样至少要2个div才能实现。现在只需要一个即可。</q>
+<h1>1）采用margin auto的做法</h1>
+<div class="box">
+	<div class="m">center</div>
+</div>
+<h1>2）采用translate平移的做法</h1>
+<div class="box">
+	<div class="z">center</div>
+</div>
