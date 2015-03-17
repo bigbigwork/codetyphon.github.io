@@ -1,4 +1,5 @@
 window.addEventListener('load',function(){
+  /*
   var ps=document.querySelector('#post').querySelectorAll('p');
   var i=0;
   for(i=0;i<ps.length;i++){
@@ -32,7 +33,7 @@ window.addEventListener('load',function(){
         text+=add_str;
     }
     document.querySelector('#post').innerHTML=text;
-    
+    */
     $(function() {
         $("img.lazy").lazyload({
             threshold : 2000,
