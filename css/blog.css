@@ -5,9 +5,17 @@ p,a{
   html{
     font-size:12px;
   }
+  body{
+    width:94%;
+    margin:0 auto;
+  }
 }
 @media (min-width: 1200px) {
   html{
     font-size:20px;
+  }
+  body{
+    width:800px;
+    margin:0 auto;
   }
 }
