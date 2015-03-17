@@ -8,6 +8,10 @@ body{
   background:rgb(204,232,207);
   padding:10px;
 }
+.footer{
+  width:100%;
+  font-size:1.5rem;
+}
 @media (max-width: 1200px) {
   html{
     font-size:12px;
