@@ -1,4 +1,4 @@
-p{
+p,a{
   font-size:1.8rem;
 }
 @media (max-width: 1200px) {
@@ -7,5 +7,7 @@ p{
   }
 }
 @media (min-width: 1200px) {
-  
+  html{
+    font-size:20px;
+  }
 }
