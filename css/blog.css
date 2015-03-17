@@ -1,5 +1,10 @@
 p,a{
   font-size:1.8rem;
+  text-align: justify;
+  text-align-last: justify;
+}
+body{
+  text-align:center;
 }
 @media (max-width: 1200px) {
   html{
