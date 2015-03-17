@@ -16,6 +16,7 @@ body {
     text-align:center;
     /* 消除鋸齒 */
     -webkit-font-smoothing: subpixel-antialiased;
+    word-wrap:break-word;overflow:hidden;
     /*
     user-select: none;
     -webkit-user-select: none;   // 禁止选中文本（如无文本选中需求，此为必选项）
